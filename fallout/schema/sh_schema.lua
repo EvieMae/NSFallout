@@ -4,7 +4,7 @@ SCHEMA.desc = " "
 SCHEMA.author = "Chancer"
 SCHEMA.uniqueID = "fallout" -- Schema will be a unique identifier stored in the database.
 
-nut.currency.set("", "denarius", "denarii")
+nut.currency.set("", "cap", "caps")
 
 nut.util.include("cl_effects.lua")
 nut.util.include("sh_commands.lua")
