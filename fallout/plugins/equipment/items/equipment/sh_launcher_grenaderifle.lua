@@ -40,7 +40,8 @@ ITEM.reqStats = {
 }
 
 ITEM.skillScaleAcc = {
-["explosives"] = 2,}
+["explosives"] = 1.2,
+}
 
 ITEM.actions = {	
 

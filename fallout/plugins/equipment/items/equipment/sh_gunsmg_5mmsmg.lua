@@ -49,7 +49,7 @@ ITEM.skillScaleDmg = {
 }
 
 ITEM.skillScaleAcc = {
-["guns"] = 1.2,
+["guns"] = 0.65,
 }
 
 ITEM.partMod = {

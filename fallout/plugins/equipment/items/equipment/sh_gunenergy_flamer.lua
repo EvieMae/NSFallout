@@ -49,7 +49,7 @@ ITEM.partMod = {
 }
 
 ITEM.skillScaleAcc = {
-["energy"] = 2
+["energy"] = 1.25
 }
 
 ITEM.skillScaleDmg = {

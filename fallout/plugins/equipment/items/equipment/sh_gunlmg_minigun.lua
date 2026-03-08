@@ -44,7 +44,7 @@ ITEM.reqStats = {
 }
 
 ITEM.skillScaleAcc = {
-["guns"] = 1.2,
+["guns"] = 0.75,
 }
 
 ITEM.partMod = {

@@ -50,11 +50,11 @@ ITEM.reqStats = {
 }
 
 ITEM.skillScaleDmg = {
-    ["guns"] = 0.15,
+    ["guns"] = 0,
 }
 
 ITEM.skillScaleAcc = {
-["guns"] = 3,
+["guns"] = 1.2,
 }
 
 ITEM.actions = {	

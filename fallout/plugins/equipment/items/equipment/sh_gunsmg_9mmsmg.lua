@@ -41,7 +41,7 @@ ITEM.reqStats = {
 }
 
 ITEM.skillScaleDmg = {
-    ["guns"] = 0.15,
+    ["guns"] = 0,
 }
 
 ITEM.upgradeSlots = {
@@ -59,7 +59,7 @@ ITEM.partMod = {
 }
 
 ITEM.skillScaleAcc = {
-["guns"] = 1.5,
+["guns"] = 0.65,
 }
 
 ITEM.actions = {	

@@ -48,7 +48,7 @@ ITEM.skillScaleAcc = {
 ["unarmed"] = 3,}
 
 ITEM.skillScaleDmg = {
-["unarmed"] = 0.7,}
+["unarmed"] = 0.14,}
 
 ITEM.actions = {	
 "tackle",

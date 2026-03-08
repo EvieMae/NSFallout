@@ -42,7 +42,7 @@ ITEM.skillScaleAcc = {
 }
 
 ITEM.skillScaleDmg = {
-["melee"] = 0.5,
+["melee"] = 0.1,
 }
 
 ITEM.actions = {	
