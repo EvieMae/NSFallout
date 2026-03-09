@@ -80,6 +80,30 @@ PLUGIN.turns = PLUGIN.turns or {
 	},
 }
 
+--gets the damage a player does with a reegular attack
+PLUGIN.helperFuncs["getTurnID"] = function(self)
+	if(self.turnOrder) then --cached value for convenience
+		return self.turnOrder
+	else
+		for k, v in pairs(PLUGIN.turns) do
+			if(v.entities and v.entities[self]) then
+				self.turnOrder = k
+				break
+			end
+		end
+	end
+end
+
+--gets the damage a player does with a reegular attack
+PLUGIN.helperFuncs["getTurnData"] = function(self)
+	local turnID = self:getTurnID()
+	if(turnID) then
+		return PLUGIN.turns[turnID]
+	else
+		return {}
+	end
+end
+
 --adds an entity to a turn table
 function PLUGIN:turnAdd(id, entity, team)
 	PLUGIN.turns[id] = PLUGIN.turns[id] or {}
@@ -423,21 +447,47 @@ if CLIENT then
 		
 		local circlePos = client:getNetVar("showAPCircle")
 		if (circlePos) then
+			circlePos.z = client:GetPos().z+15
+		
 			local agi = client:getChar():getAttrib("agi", 0)
 			local circleRad = (235 + agi*52)
-			
+
 			local trait = client:hasTrait("moving_target")
 			if(trait) then
 				circleRad = circleRad * 2
 			end
+			
+			local circleRad2 = (circleRad)^2
+			local circleRad3 = (circleRad*2)^2
+			
+			local circleCol1
+			local circleCol2
+			
+			local dist = client:GetPos():DistToSqr(circlePos)
+			if(dist > circleRad3) then
+				circleCol1 = Color(255,0,0)
+				circleCol2 = Color(255,0,0)
+				
+				render.DrawLine(circlePos, client:GetPos()+Vector(0,0,40), Color(255,0,0))
+			elseif(dist > circleRad2) then
+				circleCol1 = Color(255,0,0)
+				circleCol2 = Color(255,255,255)
+			
+				render.DrawLine(circlePos, client:GetPos()+Vector(0,0,40), Color(255,255,0))
+			else
+				circleCol1 = Color(255,255,255)
+				circleCol2 = Color(255,255,255)
+			
+				render.DrawLine(circlePos, client:GetPos()+Vector(0,0,40), Color(0,255,0))
+			end
 		
 			cam.Start3D2D(circlePos,Angle(0,0,0),1)
-				surface.DrawCircle(0,0,circleRad*1,255,255,255,255)
+				surface.DrawCircle(0,0,circleRad*1,circleCol1.r,circleCol1.g,circleCol1.b,255)
 				render.DrawLine(Vector(0,0,0),Vector(0,0,40),255,255,255,255)
 			cam.End3D2D()
 			
 			cam.Start3D2D(circlePos,Angle(0,0,0),1)
-				surface.DrawCircle(0,0,circleRad*2,255,255,255,255)
+				surface.DrawCircle(0,0,circleRad*2,circleCol2.r,circleCol2.g,circleCol2.b,255)
 				render.DrawLine(Vector(0,0,0),Vector(0,0,40),255,255,255,255)
 			cam.End3D2D()
 		end

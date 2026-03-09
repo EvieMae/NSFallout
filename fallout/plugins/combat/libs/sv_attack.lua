@@ -185,11 +185,11 @@ function PLUGIN:attack(attacker, target, info)
 	if(target) then
 		for k, v in pairs(target) do
 			if(actionTbl.noSelf and v == attacker) then continue end
-			
+
 			local evade
 			
 			if(damage) then
-				if(!responseTbl["dmg"]) then responseTbl["dmg"] = {} end
+				if(!responseTbl["dmg"]) then responseTbl["dmg"] = {} end		
 				responseTbl["dmg"][v] = PLUGIN:damageProcess(v, attackData)
 
 				evade = true
@@ -255,7 +255,7 @@ function PLUGIN:damageProcess(target, attack, responseString)
 			v.dmg = math.Round(math.Rand(v.dmg * 0.99, v.dmg * 1.01))
 			
 			--evasion
-			local evade, evaReduct = PLUGIN:evadeCheck(target, v.accuracy, v.dmg)
+			local evade, evaReduct = PLUGIN:evadeCheck(target, v.accuracy, attackInfo.attacker)
 			v.dmg = v.dmg * (evaReduct or 1)
 			
 			--reduce damage by target's resistances
@@ -443,7 +443,15 @@ function PLUGIN:combatStringCreate(attackData, responseTbl, info)
 	end
 
 	if(attackData.attacker) then
-		receivers[#receivers+1] = attackData.attacker
+		local turnOrder = attackData.attacker:getTurnData()
+
+		if(turnOrder.entities) then
+			for entity, v in pairs(turnOrder.entities) do
+				receivers[#receivers+1] = entity
+			end
+		else
+			receivers[#receivers+1] = attackData.attacker
+		end
 	end
 
 	local entities = ents.FindInSphere(attackData.attacker:GetPos(), nut.config.get("chatRange", 280) * 5)
@@ -452,7 +460,7 @@ function PLUGIN:combatStringCreate(attackData, responseTbl, info)
 			receivers[#receivers+1] = v
 		end
 	end
-	
+
 	if(nut.config.get("combatDamageDisplay")) then
 		nut.plugin.list["chatboxextra"]:ChatboxSend(attackData.attacker, "react_npc", chatPrint, false, receivers)
 	else
