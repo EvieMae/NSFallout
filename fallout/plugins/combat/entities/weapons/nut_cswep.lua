@@ -159,7 +159,7 @@ end
 function SWEP:PrimaryAttack()
 	local data = {}
 	data.start = self.Owner:GetShootPos()
-	data.endpos = data.start + self.Owner:GetAimVector() * 4096
+	data.endpos = data.start + self.Owner:GetAimVector() * 32768
 	data.filter = {self.Owner, self}
 	local trace = util.TraceLine(data)
 	local actions = self:GetActions()
@@ -444,7 +444,7 @@ function SWEP:DrawHUD()
 
 				local accuracy = (data.damage and data.damage[1] and data.damage[1].accuracy) or 0
 
-				local hitChance = PLUGIN:calcHitChance(accuracy, self.viewed)
+				local hitChance = PLUGIN:calcHitChance(accuracy, self.viewed, user)
 				hitChance = math.Round(hitChance)
 				posX = ScrW() * 0.5
 				posY = ScrH() * 0.7

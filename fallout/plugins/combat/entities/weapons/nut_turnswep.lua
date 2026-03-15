@@ -23,13 +23,13 @@ SWEP.Primary.DefaultClip = -1
 SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = ""
 SWEP.Primary.Damage = 5
-SWEP.Primary.Delay = 0.75
+SWEP.Primary.Delay = 0.1
 
 SWEP.Secondary.ClipSize = -1
 SWEP.Secondary.DefaultClip = 0
 SWEP.Secondary.Automatic = false
 SWEP.Secondary.Ammo = ""
-SWEP.Primary.Delay = 0.75
+SWEP.Secondary.Delay = 0.01
 
 SWEP.UseHands = false
 SWEP.LowerAngles = Angle(15, -10, -20)

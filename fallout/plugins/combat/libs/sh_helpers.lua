@@ -13,8 +13,13 @@ if(SERVER) then
 end
 
 --calculates hit chance with the accuracy of an attack and a target
-function PLUGIN:calcHitChance(accuracy, target)
+function PLUGIN:calcHitChance(accuracy, target, attacker)
 	local evasion = target:getEvasion()
+	
+	--self attacks guaranteed to hit
+	if(target == attacker) then
+		return 100, 1
+	end
 	
 	local difference = accuracy - evasion --difference between accuracy and evasion
 	
@@ -50,13 +55,13 @@ function PLUGIN:calcHitChance(accuracy, target)
 end
 
 --a dumb thing for printing, checks if it's a graze or an evade.
-function PLUGIN:evadeCheck(target, accuracy, dmg)
+function PLUGIN:evadeCheck(target, accuracy, attacker)
 	local evade
 	local reduct
 	local hitChance
 	
 	if(target and accuracy) then
-		hitChance, reduct = PLUGIN:calcHitChance(accuracy, target)
+		hitChance, reduct = PLUGIN:calcHitChance(accuracy, target, attacker)
 
 		if(reduct < 1 and reduct > 0) then
 			evade = "Graze"
