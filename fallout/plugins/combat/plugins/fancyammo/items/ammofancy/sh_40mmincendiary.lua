@@ -1,4 +1,4 @@
-20ITEM.name = "40mm Incendiary Grenade"
+ITEM.name = "40mm Incendiary Grenade"
 ITEM.desc = "A tin full of 40mm Incendiary grenades."
 ITEM.uniqueID = "ammo_40mmincendiary"
 ITEM.model = "models/Items/BoxSRounds.mdl"
