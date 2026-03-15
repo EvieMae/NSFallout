@@ -1,4 +1,4 @@
-ITEM.name = "Junk Shield"
+ITEM.name = "Scrap Shield"
 ITEM.desc = "A crappy shield made of banded scrap metal."
 ITEM.model = "models/halokiller38/fallout/weapons/misc/binoculars.mdl"
 ITEM.width = 2
@@ -41,7 +41,7 @@ ITEM.reqStats = {
 }
 
 ITEM.skillScaleAcc = {
-["melee"] = 2,}
+["melee"] = 1,}
 
 ITEM.skillScaleDmg = {
 ["melee"] = 0.1,}

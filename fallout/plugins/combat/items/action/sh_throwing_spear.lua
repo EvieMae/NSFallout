@@ -8,5 +8,5 @@ ITEM.action = "throwing_spear"
 ITEM.maxstack = 99
 
 ITEM.skillScaleAcc = {
-	["throwing"] = 1.5,
+	["throwing"] = 0.8,
 }

@@ -1,5 +1,5 @@
-ITEM.name = "Forged Shield"
-ITEM.desc = "A well made shield forged by a blacksmith and treated for tensile strength. Weighted for shield bashing."
+ITEM.name = "Riot Shield"
+ITEM.desc = "A pre-war tactical shield with ballistic plating and a viewing port."
 ITEM.model = "models/halokiller38/fallout/weapons/misc/binoculars.mdl"
 ITEM.width = 2
 ITEM.height = 2

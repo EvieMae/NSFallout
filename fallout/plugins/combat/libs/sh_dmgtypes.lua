@@ -4,19 +4,19 @@ PLUGIN.dmgTypes = {
 	--guns
 		["Nails"] = {
 		name = "Nails",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	
 		["BB"] = {
 		name = "BB",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	
 	[".22LR"] = {
-		name = "22LR Damage",
-		armor = 0.95,
+		name = ".22LR",
+		armor = 0.99,
 		kinetic = true,
 	},
 	
@@ -29,7 +29,7 @@ PLUGIN.dmgTypes = {
 	
 	[".32"] = {
 		name = ".32",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	
@@ -43,7 +43,7 @@ PLUGIN.dmgTypes = {
 	
 	[".38"] = {
 		name = ".38",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	
@@ -56,7 +56,7 @@ PLUGIN.dmgTypes = {
 	
 	[".308"] = {
 		name = ".308",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	
@@ -76,7 +76,7 @@ PLUGIN.dmgTypes = {
 	
 	[".357 Magnum"] = {
 		name = ".357 Magnum",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	
@@ -89,7 +89,7 @@ PLUGIN.dmgTypes = {
 
 	[".44 Magnum"] = {
 		name = ".44 Magnum",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	
@@ -109,7 +109,7 @@ PLUGIN.dmgTypes = {
 	
 	[".45 Auto"] = {
 		name = ".45 Auto",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	[".45 Auto HP"] = {
@@ -127,7 +127,7 @@ PLUGIN.dmgTypes = {
 	
 	[".45-70 Gov't"] = {
 		name = ".45-70 Gov't",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	[".45-70 Gov't HP"] = {
@@ -193,7 +193,7 @@ PLUGIN.dmgTypes = {
 	
 	["5.56"] = {
 		name = "5.56",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	["5.56 AP"] = {
@@ -211,7 +211,7 @@ PLUGIN.dmgTypes = {
 	
 	["9mm"] = {
 		name = "9mm",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	["9mm +P"] = {
@@ -229,7 +229,7 @@ PLUGIN.dmgTypes = {
 	
 	["10mm"] = {
 		name = "10mm",
-		armor = 0.95,
+		armor = 0.99,
 		kinetic = true,
 	},
 	["10mm HP"] = {
@@ -241,7 +241,7 @@ PLUGIN.dmgTypes = {
 	
 	["12.7mm"] = {
 		name = "12.7mm",
-		armor = 0.9,
+		armor = 0.99,
 		kinetic = true,
 	},
 	["12.7mm HP"] = {
@@ -304,9 +304,16 @@ PLUGIN.dmgTypes = {
 		special = "Maxcharge",
 		energy = true,
 	},
+	["Electron Charge Pack Thermal Charge"] = {
+		name = "Electron Charge Pack Thermal Charge",
+		armor = 0.6,
+		special = "Incendiary",
+		energy = true,
+	},	
 	["Flamer Fuel"] = {
 		name = "Flamer Fuel",
 		armor = 0.6,
+		special = "Incendiary",
 		energy = true,
 	},
 	["Energy Cell"] = {
@@ -325,8 +332,14 @@ PLUGIN.dmgTypes = {
 		armor = 0.5,
 		special = "Maxcharge",
 		energy = true,
+
 	},
-	
+	["Energy Cell Thermal Charge"] = {
+		name = "Energy Cell Thermal Charge",
+		armor = 0.6,
+		special = "Incendiary",
+		energy = true,
+	},	
 	["Microfusion Cell"] = {
 		name = "Microfusion Cell",
 		armor = 0.6,
@@ -344,7 +357,12 @@ PLUGIN.dmgTypes = {
 		special = "Maxcharge",
 		energy = true,
 	},
-	
+	["Microfusion Cell Thermal Charge"] = {
+		name = "Microfusion Cell Thermal Charge",
+		armor = 0.6,
+		special = "Incendiary",
+		energy = true,
+	},	
 	["40mm Grenade"] = {
 		name = "40mm Grenade",
 		armor = 0.95,
@@ -430,20 +448,24 @@ PLUGIN.dmgTypes = {
 		armor = 0.5,
 		kinetic = true,
 	},
-	
+	["Cryo"] = {
+		name = "Cryo",
+		armor = 0.5,
+		kinetic = true,
+	},
 	["Laser"] = {
 		name = "Laser",
-		armor = 0.15,
+		armor = 0.5,
 		energy = true,
 	},
 	["Plasma"] = {
 		name = "Plasma",
-		armor = 0.1,
+		armor = 0.5,
 		energy = true,
 	},
 	["Explosion"] = {
 		name = "Explosion",
-		armor = 1,
+		armor = 0.9,
 		kinetic = true,
 	},
 }

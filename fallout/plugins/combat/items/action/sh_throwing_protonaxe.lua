@@ -8,5 +8,5 @@ ITEM.action = "throwing_protonaxe"
 ITEM.maxstack = 99
 
 ITEM.skillScaleAcc = {
-	["throwing"] = 1,
+	["throwing"] = 0.8,
 }

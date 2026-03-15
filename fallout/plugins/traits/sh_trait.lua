@@ -102,7 +102,7 @@ TRAITS:Register(TRAIT)
 local TRAIT = {}
 TRAIT.uid = "evader" 
 TRAIT.name = "Evader"
-TRAIT.desc = "Your Evasion is counted as being 10 points higher."
+TRAIT.desc = "Your Evasion is counted as being 20 points higher."
 TRAIT.category = "Perks (Passive)"
 TRAIT.icon = "fonvui/hud/icons/perks/Evader.png"
 TRAITS:Register(TRAIT)
@@ -368,7 +368,7 @@ TRAITS:Register(TRAIT)
 local TRAIT = {}
 TRAIT.uid = "lifegiver" 
 TRAIT.name = "Lifegiver"
-TRAIT.desc = "+25 Max HP."
+TRAIT.desc = "+50 Max HP."
 TRAIT.category = "Perks (Passive)"
 TRAIT.icon = "fonvui/hud/icons/perks/Life Giver.png"
 TRAITS:Register(TRAIT)
@@ -398,7 +398,7 @@ TRAIT.onLoaded = function(client)
 		uid = TRAIT.uid,
 		name = TRAIT.name,
 		
-		evasion = 3,
+		evasion = 5,
 		
 		hidden = true
 	}
@@ -437,6 +437,7 @@ TRAIT.OnAttackData = function(self, action, attacker, info)
 end
 TRAITS:Register(TRAIT)
 //
+
 local TRAIT = {}
 TRAIT.uid = "toughness" 
 TRAIT.name = "Toughness"

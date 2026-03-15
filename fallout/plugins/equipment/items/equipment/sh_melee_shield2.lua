@@ -1,5 +1,5 @@
-ITEM.name = "Riotshield"
-ITEM.desc = "A shield made of reclaimed steel, strengthened with straps and linings."
+ITEM.name = "Forged Shield"
+ITEM.desc = "A blacksmith made shield made of reclaimed steel, strengthened with straps and linings."
 ITEM.model = "models/halokiller38/fallout/weapons/misc/binoculars.mdl"
 ITEM.width = 2
 ITEM.height = 2

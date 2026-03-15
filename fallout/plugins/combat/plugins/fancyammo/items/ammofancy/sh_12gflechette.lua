@@ -9,7 +9,7 @@ ITEM.ammoAmount = 30 --single bullet
 ITEM.bullet = "12 Gauge Flechette"
 ITEM.maxstack = 100
 
-ITEM.price = 25
+ITEM.price = 18
 ITEM.permit = "permit_general"
 
 ITEM.dmgT = "12 Gauge Flechette"

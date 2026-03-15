@@ -20,12 +20,12 @@ ITEM.weapondual = false
 ITEM.ammo = "40mm Grenade"
 
 ITEM.dmg = {
-	["Explosion"] = 50
+	["Explosion"] = 40
 }
 
 ITEM.multi = 3 --how many hits it does, dont need to put it here if it's just 1
 ITEM.radius = 100 --dont put this here unless you want it to be AOE
-ITEM.ammoUse = 1 --how much ammo it should use per shot, will default to 0 if not set
+ITEM.ammoUse = 3 --how much ammo it should use per shot, will default to 0 if not set
 ITEM.accuracy = 0 --bonus accuracy, can also go negative. defaults to 0 if not set
 ITEM.costAP = 1 --how much AP is used when using this weapon normally
 --long, medium, close
@@ -41,7 +41,7 @@ ITEM.reqStats = {
 }
 
 ITEM.skillScaleAcc = {
-["explosives"] = 1.2,
+["explosives"] = 0.8,
 }
 
 

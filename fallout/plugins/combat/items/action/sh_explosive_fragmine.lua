@@ -9,5 +9,5 @@ ITEM.maxstack = 10
 ITEM.action = "mine_frag"
 
 ITEM.skillScaleAcc = {
-	["explosives"] = 1,
+	["explosives"] = 0.8,
 }

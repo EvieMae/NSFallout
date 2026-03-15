@@ -33,12 +33,12 @@ PLUGIN.specialAmmoTypes = {
 	
 	--Overpressure
 	["+P"] = function(action, attacker, info)
-		action.dmg = action.dmg*math.Rand(1.1,1.2)
+		action.dmg = action.dmg*1.2
 	end,
 	
 	--Overpressure
 	["SWC"] = function(action, attacker, info)
-		action.dmg = action.dmg*1.2
+		action.dmg = action.dmg*0.95
 	end,
 	
 	--explosive

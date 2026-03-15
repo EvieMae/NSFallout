@@ -58,7 +58,7 @@ ITEM.skillScaleDmg = {
 }
 
 ITEM.skillScaleAcc = {
-["energy"] = 3,
+["energy"] = 1.5,
 }
 
 ITEM.actions = {	

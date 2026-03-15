@@ -1214,7 +1214,7 @@ ACTS:Register(ACT)
 
 local ACT = {}
 ACT.uid = "block1"
-ACT.name = "Block Level 1"
+ACT.name = "Block"
 ACT.desc = "Provides a massive armor boost against the next 5 incoming hits, last one turn."
 ACT.attackString = "prepares to block"
 ACT.category = "Melee"
@@ -1245,7 +1245,7 @@ ACTS:Register(ACT)
 
 local ACT = {}
 ACT.uid = "block2"
-ACT.name = "Block Level 2"
+ACT.name = "Block"
 ACT.desc = "Provides a massive armor boost against the next 6 incoming hits, last one turn."
 ACT.attackString = "prepares to block"
 ACT.category = "Melee"
@@ -1276,7 +1276,7 @@ ACTS:Register(ACT)
 
 local ACT = {}
 ACT.uid = "block3"
-ACT.name = "Block Level 3"
+ACT.name = "Block"
 ACT.desc = "Provides a massive armor boost against the next 7 incoming hits, last one turn."
 ACT.attackString = "prepares to block"
 ACT.category = "Melee"

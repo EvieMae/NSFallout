@@ -11,8 +11,8 @@ ITEM.iconCam = {
 
 ITEM.specialSlot = "Primary"
 ITEM.category = "Weapons"
-ITEM.durability = 500
-ITEM.price = 750
+ITEM.durability = 250
+ITEM.price = 300
 ITEM.magSize = 1 --how many times it can be used before reloading is necessary
 
 ITEM.weight = 1
@@ -20,7 +20,7 @@ ITEM.weapondual = false
 ITEM.ammo = "40mm Grenade"
 
 ITEM.dmg = {
-	["Explosion"] = 55
+	["Explosion"] = 40
 }
 
 ITEM.multi = 1 --how many hits it does, dont need to put it here if it's just 1
@@ -40,7 +40,7 @@ ITEM.reqStats = {
 }
 
 ITEM.skillScaleAcc = {
-["explosives"] = 1.2,
+["explosives"] = 0.8,
 }
 
 ITEM.actions = {	

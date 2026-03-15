@@ -19,8 +19,8 @@ ITEM.magSize = 6 --how many times it can be used before reloading is necessary
 ITEM.weight = 1
 ITEM.weapondual = false
 ITEM.ammo = ".357 Magnum"
-ITEM.critC = 12
-ITEM.critM = 0.5
+ITEM.critC = 15
+ITEM.critM = 0.8
 
 ITEM.dmg = {
 	[".357 Magnum"] = 14

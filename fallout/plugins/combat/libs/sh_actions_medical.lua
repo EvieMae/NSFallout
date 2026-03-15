@@ -4,7 +4,7 @@ local ACT
 ACT = {}
 ACT.uid = "med_aid"
 ACT.name = "First Aid"
-ACT.desc = "+10 HP per use. Medicine modifier: 0.75."
+ACT.desc = "+10 HP per use. Medicine modifier: 0.8."
 ACT.category = "Medical"
 ACT.restrict = true
 ACT.attackString = "applies first aid"
@@ -22,7 +22,7 @@ ACT.attackOverwrite = function(actionTbl, client, trace, part, weapon)
 	if(!IsValid(target)) then return end
 	
 	local healAmt = 10
-	healAmt = healAmt + char:getSkill("medicine", 0) * 0.75
+	healAmt = healAmt + char:getSkill("medicine", 0) * 0.8
 
 	if(weapon) then
 		local weaponItem = nut.item.instances[weapon]

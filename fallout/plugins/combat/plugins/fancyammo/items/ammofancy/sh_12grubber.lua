@@ -9,7 +9,7 @@ ITEM.ammoAmount = 30 --single bullet
 ITEM.bullet = "12 Gauge Rubber"
 ITEM.maxstack = 100
 
-ITEM.price = 15
+ITEM.price = 10
 ITEM.permit = "permit_general"
 
 ITEM.dmgT = "12 Gauge Rubber"

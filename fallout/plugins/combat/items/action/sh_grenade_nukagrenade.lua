@@ -9,5 +9,5 @@ ITEM.maxstack = 10
 ITEM.action = "grenade_nuka"
 
 ITEM.skillScaleAcc = {
-	["explosives"] = 1,
+	["explosives"] = 0.8,
 }

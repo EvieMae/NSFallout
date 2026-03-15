@@ -339,7 +339,7 @@ PLUGIN.helperFuncs["getEvasion"] = function(self)
 		end
 	
 		local agi = char:getAttrib("agi", 0)
-		evasion = evasion + (agi * 1.0)
+		evasion = evasion + (agi * 2.0)
 		
 		local eva = char:getSkill("evasion", 0)
 		evasion = evasion + (eva * 1)
@@ -354,7 +354,7 @@ PLUGIN.helperFuncs["getEvasion"] = function(self)
 		end
 
 		if self:hasTrait("evader") then
-			evasion = evasion + 10
+			evasion = evasion + 20
 		end 
 		
 		evasion = math.Round(evasion, 2)

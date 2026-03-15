@@ -48,13 +48,13 @@ PLUGIN.helperFuncs["getMaxHP"] = function(self, noStats)
 	if(char and !noStats) then
 		local endurance = char:getAttrib("end", 0)
 
-		maxHP = maxHP + endurance*3
+		maxHP = maxHP + endurance*5
 		
 		local str = char:getAttrib("str", 0)
 		maxHP = maxHP + str
 		
 		if(self:hasTrait("lifegiver")) then
-			maxHP = maxHP + 30
+			maxHP = maxHP + 50
 		end
 	end
 	

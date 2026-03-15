@@ -9,7 +9,7 @@ ITEM.ammoAmount = 30 --single bullet
 ITEM.bullet = "5.56 HP"
 ITEM.maxstack = 100
 
-ITEM.price = 18
+ITEM.price = 40
 ITEM.permit = "permit_general"
 
 ITEM.dmgT = "5.56 HP"

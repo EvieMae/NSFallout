@@ -8,7 +8,7 @@ HISTORY.category = "History"
 
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
-	character:updateSkill("athletics", 4)
+	character:updateSkill("explosives", 5)
 	character:updateAttrib("str", 1)
 end
 --[[
@@ -31,7 +31,7 @@ HISTORY.items = {
 --]]
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
-	character:updateSkill("sneak", 4)
+	character:updateSkill("sneak", 10)
 	character:updateAttrib("per", 1)
 end
 HISTORIES:Register(HISTORY)
@@ -49,7 +49,7 @@ HISTORY.items = {
 --]]
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
-	character:updateSkill("throwing", 2)
+	character:updateSkill("throwing", 5)
 	character:updateAttrib("end", 1)
 end
 HISTORIES:Register(HISTORY)
@@ -62,7 +62,7 @@ HISTORY.desc = "You know how to make a deal, a sharp tongue and quick wit have h
 HISTORY.category = "History"
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
-	character:updateSkill("speech", 4)
+	character:updateSkill("speech", 10)
 	character:updateAttrib("cha", 1)
 	character:giveMoney(50)
 end
@@ -81,7 +81,7 @@ HISTORY.items = {
 --]]
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
-	character:updateSkill("medicine", 4)
+	character:updateSkill("medicine", 10)
 	character:updateAttrib("int", 1)
 end
 HISTORIES:Register(HISTORY)
@@ -99,7 +99,7 @@ HISTORY.items = {
 --]]
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
-	character:updateSkill("evasion", 2)
+	character:updateSkill("athletics", 10)
 	character:updateAttrib("agi", 1)
 end
 
@@ -118,35 +118,17 @@ HISTORY.items = {
 --]]
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
-	character:updateSkill("lockpicking", 4)
+	character:updateSkill("lockpicking", 10)
 	character:updateAttrib("luck", 1)
 end
 HISTORIES:Register(HISTORY)
 
 //
-local HISTORY = {}
-HISTORY.uid = "blacksmithhistory" 
-HISTORY.name = "Blacksmith"
-HISTORY.desc = "You learned the art of forging melee weapons and armor from metal and hide alike.\nGives access to Blacksmithing recipes. +4 Repair.\nYou are not required to roleplay this background if you select it."
-HISTORY.category = "History"
---[[
-HISTORY.items = {
-	["drug_jet"] = 1,
-	["drug_psycho"] = 1,
-}
---]]
-HISTORY.func = function(client, character)
-	character:setData("history", HISTORY.uid)
-    client:giveTrait("blacksmith")
-	character:updateSkill("repair", 4)
-end
-HISTORIES:Register(HISTORY)
 
-//
 local HISTORY = {}
 HISTORY.uid = "gunsmithhistory" 
-HISTORY.name = "Gunsmith"
-HISTORY.desc = "You learned complex machining, metalworking, and woodworking to maintain and build firearms and ammunition.\nGives you access to Gunsmithing and Ammosmithing recipes. +4 Repair.\nYou are not required to roleplay this background if you select it."
+HISTORY.name = "CRAFTER: Armorer"
+HISTORY.desc = "You learned complex machining, metalworking, and woodworking to maintain and build weapons, armor, and ammunition.\nGives +20 Repair.\nYou are not required to roleplay this background if you select it."
 HISTORY.category = "History"
 --[[
 HISTORY.items = {
@@ -157,15 +139,15 @@ HISTORY.items = {
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
     client:giveTrait("gunsmith")
-	character:updateSkill("repair", 4)
+	character:updateSkill("repair", 25)
 end
 HISTORIES:Register(HISTORY)
 
 //
 local HISTORY = {}
 HISTORY.uid = "scientisthistory" 
-HISTORY.name = "Scientist"
-HISTORY.desc = "You worked under a post-war organization that valued chemistry, engineering, and mathematics.\nGives you access to Science crafting recipes. +4 Science.\nYou are not required to roleplay this background if you select it."
+HISTORY.name = "CRAFTER: Scientist"
+HISTORY.desc = "You worked under a post-war organization that valued chemistry, engineering, and mathematics.\nGives +20 Science.\nYou are not required to roleplay this background if you select it."
 HISTORY.category = "History"
 --[[
 HISTORY.items = {
@@ -176,15 +158,15 @@ HISTORY.items = {
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
     client:giveTrait("science")
-	character:updateSkill("science", 4)
+	character:updateSkill("science", 25)
 end
 HISTORIES:Register(HISTORY)
 
 //
 local HISTORY = {}
 HISTORY.uid = "chefhistory" 
-HISTORY.name = "Chef"
-HISTORY.desc = "You hold an expertise in dealing with all of the strange and irradiated food of the wasteland.\nGives you access to Chef recipes. +4 Survival.\nYou are not required to roleplay this background if you select it."
+HISTORY.name = "CRAFTER: Chef"
+HISTORY.desc = "You hold an expertise in dealing with all of the strange and irradiated food of the wasteland.\nGives +20 Survival.\nYou are not required to roleplay this background if you select it."
 HISTORY.category = "History"
 --[[
 HISTORY.items = {
@@ -195,6 +177,6 @@ HISTORY.items = {
 HISTORY.func = function(client, character)
 	character:setData("history", HISTORY.uid)
     client:giveTrait("chef")
-	character:updateSkill("survival", 4)
+	character:updateSkill("survival", 25)
 end
 HISTORIES:Register(HISTORY)

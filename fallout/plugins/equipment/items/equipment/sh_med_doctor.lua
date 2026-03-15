@@ -12,7 +12,7 @@ ITEM.weight = 1
 ITEM.weapondual = false
 
 ITEM.skillScaleDmg = {
-	["medicine"] = 0.15,
+	["medicine"] = 0.8,
 }
 
 ITEM.skillScaleAcc = {
