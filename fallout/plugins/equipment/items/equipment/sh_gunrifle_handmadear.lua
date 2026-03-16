@@ -21,7 +21,7 @@ ITEM.weapondual = false
 ITEM.ammo = "5.56"
 
 ITEM.dmg = {
-	["5.56"] = 11
+	["5.56"] = 13
 }
 
 ITEM.multi = 1 --how many hits it does, dont need to put it here if it's just 1

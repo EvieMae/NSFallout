@@ -20,7 +20,7 @@ ITEM.weight = 1
 ITEM.weapondual = false
 
 ITEM.dmg = {
-	["10mm"] = 12
+	["10mm"] = 14
 }
 
 ITEM.ammo = "10mm"

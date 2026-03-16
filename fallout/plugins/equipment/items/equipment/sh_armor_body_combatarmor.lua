@@ -11,7 +11,7 @@ ITEM.iconCam = {
 	outlineColor = Color(15, 250, 0),
 }
 ITEM.price = 1500
-ITEM.durability = 250
+ITEM.durability = 5
 
 ITEM.armor = 18
 

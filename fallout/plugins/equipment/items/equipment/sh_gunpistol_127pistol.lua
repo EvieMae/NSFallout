@@ -23,7 +23,7 @@ ITEM.critC = 20
 ITEM.critM = 0.8
 
 ITEM.dmg = {
-	["12.7mm"] = 20
+	["12.7mm"] = 22
 }
 
 ITEM.multi = 1 --how many hits it does, dont need to put it here if it's just 1

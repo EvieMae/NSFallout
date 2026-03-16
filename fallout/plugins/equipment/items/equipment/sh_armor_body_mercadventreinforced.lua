@@ -11,9 +11,9 @@ ITEM.iconCam = {
 	outlineColor = Color(15, 250, 0),
 }
 ITEM.price = 150
-ITEM.durability = 250
+ITEM.durability = 200
 
-ITEM.armor = 10
+ITEM.armor = 3
 
 ITEM.upgradeSlots = {
 ["Inserts"] = true,

@@ -22,7 +22,7 @@ ITEM.ammo = "Nails"
 ITEM.critC = 5
 
 ITEM.dmg = {
-	["Nails"] = 5
+	["Nails"] = 7
 }
 
 ITEM.multi = 1 --how many hits it does, dont need to put it here if it's just 1

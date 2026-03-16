@@ -268,7 +268,7 @@ ACT.desc = "Fire two rounds with no accuracy penalty."
 ACT.attackString = "fires two rounds at"
 ACT.category = "Gun"
 ACT.costAP = 1
-ACT.CD = 2
+ACT.CD = 1
 ACT.dmg = 0
 ACT.weaponMult = 1
 ACT.accuracy = -2
@@ -506,7 +506,7 @@ ACT.desc = "Fire two rounds with a slight accuracy penalty."
 ACT.attackString = "fans the hammer at"
 ACT.category = "Gun"
 ACT.costAP = 1
-ACT.CD = 2
+ACT.CD = 1
 ACT.dmg = 0
 ACT.weaponMult = 1
 ACT.accuracy = -1
@@ -641,7 +641,7 @@ ACTS:Register(ACT)
 local ACT = {}
 ACT.uid = "suppressionpistol"
 ACT.name = "Suppressive Fire"
-ACT.desc = "Suppress a group of targets. (Consumes and fires 3 rounds.)"
+ACT.desc = "Suppress a group of targets. (Consumes and fires 2 rounds.)"
 ACT.attackString = "suppresses"
 ACT.category = "Gun"
 ACT.radius = 75
@@ -692,10 +692,10 @@ local ACT
 ACT = {}
 ACT.uid = "stun"
 ACT.name = "Daze"
-ACT.desc = "Throw a stunning attack."
+ACT.desc = "Throw an attack that throws off your enemy's aim."
 ACT.category = "Melee"
 ACT.restrict = true
-ACT.attackString = "attempts to stun"
+ACT.attackString = "attempts to daze"
 ACT.CD = 2
 ACT.dmg = 0
 ACT.weaponMult = 1
@@ -707,7 +707,7 @@ ACT.effects = {
         effect = "dazed",
         duration = 1,
         strength = 1,
-		accuracy = -25, --multiplies accuracy by this number
+		accuracyMult = 0.5 --multiplies accuracy by this number
 
         debuff = true,
     }
@@ -1215,6 +1215,37 @@ ACTS:Register(ACT)
 local ACT = {}
 ACT.uid = "block1"
 ACT.name = "Block"
+ACT.desc = "Provides a massive armor boost against the next 4 incoming hits, last one turn."
+ACT.attackString = "prepares to block"
+ACT.category = "Melee"
+ACT.costAP = 1
+ACT.CD = 1
+ACT.restrict = true
+ACT.selfOnly = true
+ACT.notarget = true
+ACT.effects = {
+    [1] = {
+        uid = ACT.uid,
+
+        name = "Blocking",
+        effect = "blocking",
+        duration = 1,
+        strength = 1,
+
+		armor = 200,
+
+		hitsDef = 4,
+		
+		selfApply = true,
+		buff = true,
+    }
+}
+ACTS:Register(ACT)
+--
+
+local ACT = {}
+ACT.uid = "block2"
+ACT.name = "Block"
 ACT.desc = "Provides a massive armor boost against the next 5 incoming hits, last one turn."
 ACT.attackString = "prepares to block"
 ACT.category = "Melee"
@@ -1244,7 +1275,7 @@ ACTS:Register(ACT)
 --
 
 local ACT = {}
-ACT.uid = "block2"
+ACT.uid = "block3"
 ACT.name = "Block"
 ACT.desc = "Provides a massive armor boost against the next 6 incoming hits, last one turn."
 ACT.attackString = "prepares to block"
@@ -1266,37 +1297,6 @@ ACT.effects = {
 		armor = 200,
 
 		hitsDef = 6,
-		
-		selfApply = true,
-		buff = true,
-    }
-}
-ACTS:Register(ACT)
---
-
-local ACT = {}
-ACT.uid = "block3"
-ACT.name = "Block"
-ACT.desc = "Provides a massive armor boost against the next 7 incoming hits, last one turn."
-ACT.attackString = "prepares to block"
-ACT.category = "Melee"
-ACT.costAP = 1
-ACT.CD = 1
-ACT.restrict = true
-ACT.selfOnly = true
-ACT.notarget = true
-ACT.effects = {
-    [1] = {
-        uid = ACT.uid,
-
-        name = "Blocking",
-        effect = "blocking",
-        duration = 1,
-        strength = 1,
-
-		armor = 200,
-
-		hitsDef = 7,
 		
 		selfApply = true,
 		buff = true,

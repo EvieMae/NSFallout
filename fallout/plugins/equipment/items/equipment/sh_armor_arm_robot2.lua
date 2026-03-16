@@ -4,7 +4,7 @@ ITEM.model = "models/maxib123/enclavelockersmall.mdl"
 ITEM.height = 1
 ITEM.width = 1
 ITEM.price = 200
-ITEM.durability = 300
+ITEM.durability = 5
 ITEM.faction = FACTION_ROBOT -- FACTION_MUTANT or FACTION_ROBOT
 ITEM.category = "Equipment - Special"
 

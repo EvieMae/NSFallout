@@ -11,7 +11,7 @@ outline = true,
 outlineColor = Color(15, 250, 0),
 }
 ITEM.price = 75
-ITEM.durability = 275
+ITEM.durability = 5
 ITEM.faction = FACTION_MUTANT -- FACTION_MUTANT or FACTION_ROBOT
 ITEM.category = "Equipment - Special"
 

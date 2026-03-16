@@ -22,7 +22,7 @@ ITEM.ammo = ".45 Auto"
 ITEM.critC = 5
 
 ITEM.dmg = {
-	[".45 Auto"] = 11
+	[".45 Auto"] = 13
 }
 
 ITEM.multi = 1 --how many hits it does, dont need to put it here if it's just 1

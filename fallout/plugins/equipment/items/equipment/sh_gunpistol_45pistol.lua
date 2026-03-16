@@ -23,7 +23,7 @@ ITEM.critC = 20
 ITEM.critM = 0.8
 
 ITEM.dmg = {
-	[".45 Auto"] = 12
+	[".45 Auto"] = 14
 }
 
 ITEM.reqStats = {

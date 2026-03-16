@@ -4,7 +4,7 @@ ITEM.model = "models/mosi/fallout4/props/junk/ammobag.mdl"
 ITEM.height = 1
 ITEM.width = 1
 ITEM.price = 25
-ITEM.durability = 250
+ITEM.durability = 5
 
 ITEM.armor = 3
 

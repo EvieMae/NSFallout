@@ -23,7 +23,7 @@ ITEM.weapondual = false
 ITEM.ammo = ".45 Auto"
 
 ITEM.dmg = {
-	[".45 Auto"] = 10,
+	[".45 Auto"] = 12,
 	["Radiation"] = 10
 }
 

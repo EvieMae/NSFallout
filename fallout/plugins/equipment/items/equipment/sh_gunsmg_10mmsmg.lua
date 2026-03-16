@@ -19,7 +19,7 @@ ITEM.magSize = 30 --how many times it can be used before reloading is necessary
 ITEM.weight = 1
 ITEM.weapondual = false
 ITEM.dmg = {
-	["10mm"] = 10
+	["10mm"] = 12
 }
 ITEM.ammo = "10mm"
 ITEM.critC = 5
