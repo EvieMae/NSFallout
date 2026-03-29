@@ -14,7 +14,10 @@ ITEM.specialSlot = "Primary"
 ITEM.category = "Weapon - Melee"
 ITEM.durability = 400
 ITEM.price = 2000
- 
+
+ITEM.IdleAnim = "idle_melee2"
+ITEM.WalkAnim = "walk_melee2"
+ITEM.RunAnim = "run_melee2"
 
 ITEM.weight = 1
 ITEM.weapondual = false

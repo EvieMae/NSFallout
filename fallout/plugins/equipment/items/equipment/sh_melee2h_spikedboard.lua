@@ -15,6 +15,10 @@ ITEM.category = "Weapon - Melee"
 ITEM.durability = 200
 ITEM.price = 50
 
+ITEM.IdleAnim = "idle_melee2"
+ITEM.WalkAnim = "walk_melee2"
+ITEM.RunAnim = "run_melee2"
+
 ITEM.weight = 1
 ITEM.weapondual = false
 ITEM.costAP = 1 --how much AP is used when using this weapon normally

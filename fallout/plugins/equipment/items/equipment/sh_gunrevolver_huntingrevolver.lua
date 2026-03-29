@@ -21,8 +21,12 @@ ITEM.magSize = 5 --how many times it can be used before reloading is necessary
 ITEM.weight = 1
 ITEM.weapondual = false
 ITEM.ammo = ".45-70 Gov't"
-ITEM.critC = 15
+ITEM.critC = 20
 ITEM.critM = 0.8
+
+ITEM.IdleAnim = "idle_revolver"
+ITEM.WalkAnim = "walk_revolver"
+ITEM.RunAnim = "run_revolver"
 
 ITEM.dmg = {
 	[".45-70 Gov't"] = 24

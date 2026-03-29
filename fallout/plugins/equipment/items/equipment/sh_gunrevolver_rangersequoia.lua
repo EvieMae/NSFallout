@@ -24,6 +24,10 @@ ITEM.ammo = ".45-70 Gov't"
 ITEM.critC = 25
 ITEM.critM = 0.5
 
+ITEM.IdleAnim = "idle_revolver"
+ITEM.WalkAnim = "walk_revolver"
+ITEM.RunAnim = "run_revolver"
+
 ITEM.dmg = {
 	[".45-70 Gov't"] = 25
 }

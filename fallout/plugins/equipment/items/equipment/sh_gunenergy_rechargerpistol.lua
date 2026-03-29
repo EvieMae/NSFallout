@@ -21,8 +21,12 @@ ITEM.weight = 1
 ITEM.weapondual = false
 ITEM.ammo = "Microfusion Cell"
 
+ITEM.IdleAnim = "idle_pistol"
+ITEM.WalkAnim = "walk_pistol"
+ITEM.RunAnim = "run_pistol"
+
 ITEM.dmg = {
-	["Microfusion Cell"] = 13
+	["Microfusion Cell"] = 15
 }
 
 ITEM.multi = 1 --how many hits it does, dont need to put it here if it's just 1

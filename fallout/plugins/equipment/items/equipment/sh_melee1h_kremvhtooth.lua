@@ -14,7 +14,11 @@ ITEM.specialSlot = "Sidearm"
 ITEM.category = "Weapon - Melee"
 ITEM.durability = 200
 ITEM.price = 500
- 
+
+ITEM.IdleAnim = "idle_knife"
+ITEM.WalkAnim = "walk_knife"
+ITEM.RunAnim = "run_knife"
+
 
 ITEM.weight = 1
 ITEM.weapondual = false

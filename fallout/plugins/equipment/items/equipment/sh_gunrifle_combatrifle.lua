@@ -24,6 +24,10 @@ ITEM.weight = 1
 ITEM.weapondual = false
 ITEM.ammo = ".45 Auto"
 
+ITEM.IdleAnim = "idle_ar2"
+ITEM.WalkAnim = "walk_ar2"
+ITEM.RunAnim = "run_ar2"
+
 ITEM.dmg = {
 	[".45 Auto"] = 14
 }

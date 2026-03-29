@@ -23,6 +23,10 @@ ITEM.weapondual = false
 ITEM.ammo = ".45 Auto"
 ITEM.critC = 5
 
+ITEM.IdleAnim = "idle_smg1"
+ITEM.WalkAnim = "walk_smg1"
+ITEM.RunAnim = "run_smg1"
+
 ITEM.dmg = {
 	[".45 Auto"] = 13
 }

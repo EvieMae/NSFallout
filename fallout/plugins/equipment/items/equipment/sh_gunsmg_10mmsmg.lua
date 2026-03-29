@@ -25,6 +25,10 @@ ITEM.dmg = {
 ITEM.ammo = "10mm"
 ITEM.critC = 5
 
+ITEM.IdleAnim = "idle_smg1"
+ITEM.WalkAnim = "walk_smg1"
+ITEM.RunAnim = "run_smg1"
+
 ITEM.multi = 1 --how many hits it does, dont need to put it here if it's just 1
 ITEM.ammoUse = 1 --how much ammo it should use per shot, will default to 0 if not set
 ITEM.accuracy = 0 --bonus accuracy, can also go negative. defaults to 0 if not set

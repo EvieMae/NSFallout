@@ -21,6 +21,10 @@ ITEM.weapondual = false
 ITEM.ammo = "Nails"
 ITEM.critC = 5
 
+ITEM.IdleAnim = "idle_smg1"
+ITEM.WalkAnim = "walk_smg1"
+ITEM.RunAnim = "run_smg1"
+
 ITEM.dmg = {
 	["Nails"] = 7
 }

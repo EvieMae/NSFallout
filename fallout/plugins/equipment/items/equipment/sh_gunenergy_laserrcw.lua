@@ -21,8 +21,12 @@ ITEM.weight = 1
 ITEM.weapondual = false
 ITEM.ammo = "Electron Charge Pack"
 
+ITEM.IdleAnim = "idle_ar2"
+ITEM.WalkAnim = "walk_ar2"
+ITEM.RunAnim = "run_ar2"
+
 ITEM.dmg = {
-	["Electron Charge Pack"] = 12
+	["Electron Charge Pack"] = 14
 }
 
 ITEM.multi = 1 --how many hits it does, dont need to put it here if it's just 1

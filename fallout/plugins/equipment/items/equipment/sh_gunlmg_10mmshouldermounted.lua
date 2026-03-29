@@ -19,6 +19,10 @@ ITEM.magSize = 60 --how many times it can be used before reloading is necessary
 ITEM.weight = 1
 ITEM.weapondual = false
 
+ITEM.IdleAnim = "idle_ar2"
+ITEM.WalkAnim = "walk_ar2"
+ITEM.RunAnim = "run_ar2"
+
 ITEM.dmg = {
 	["10mm"] = 14
 }

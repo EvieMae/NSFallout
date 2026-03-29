@@ -21,6 +21,10 @@ ITEM.weapondual = false
 ITEM.ammo = "5.56"
 ITEM.critC = 5
 
+ITEM.IdleAnim = "idle_smg1"
+ITEM.WalkAnim = "walk_smg1"
+ITEM.RunAnim = "run_smg1"
+
 ITEM.dmg = {
 	["5.56"] = 17
 }

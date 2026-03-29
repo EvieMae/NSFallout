@@ -19,7 +19,7 @@ ITEM.magSize = 8 --how many times it can be used before reloading is necessary
 ITEM.weight = 1
 ITEM.weapondual = false
 ITEM.dmg = {
-	["Microfusion Cell"] = 14
+	["Microfusion Cell"] = 16
 }
 ITEM.ammo = "Microfusion Cell"
 

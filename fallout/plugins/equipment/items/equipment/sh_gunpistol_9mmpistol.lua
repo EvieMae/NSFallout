@@ -21,8 +21,12 @@ ITEM.magSize = 13 --how many times it can be used before reloading is necessary
 ITEM.weight = 1
 ITEM.weapondual = false
 ITEM.ammo = "9mm"
-ITEM.critC = 20
-ITEM.critM = 0.8
+ITEM.critC = 17.5
+ITEM.critM = 0.85
+
+ITEM.IdleAnim = "idle_pistol"
+ITEM.WalkAnim = "walk_pistol"
+ITEM.RunAnim = "run_pistol"
 
 ITEM.dmg = {
 	["9mm"] = 11
