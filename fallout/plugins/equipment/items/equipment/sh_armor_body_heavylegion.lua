@@ -13,7 +13,7 @@ ITEM.iconCam = {
 ITEM.price = 4000
 ITEM.durability = 18
 
-ITEM.armor = 21
+ITEM.armor = 23
 ITEM.evasion = -30
 
 ITEM.reqStats = {
