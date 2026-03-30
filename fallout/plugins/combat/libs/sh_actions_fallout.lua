@@ -928,7 +928,6 @@ ACT.restrict = true
 ACT.attackString = "swings around themselves at"
 ACT.CD = 2
 ACT.dmg = 5
-ACT.dmgT = "Slash"
 ACT.costAP = 1
 ACT.weaponMult = 1
 ACT.radius = 150 
