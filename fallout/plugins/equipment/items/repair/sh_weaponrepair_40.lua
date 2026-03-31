@@ -1,4 +1,4 @@
-ITEM.name = "Smith's Tool Bag"
+ITEM.name = "Smith's Tool Kit"
 ITEM.desc = "A small bag with a set of bristles, oils, wipes, and small hand tools for maintaining weapons. Requires 8 Repair skill to use. (Repairs up to 40% Durability)"
 ITEM.model = "models/mosi/fnv/props/health/repairkit.mdl"
 ITEM.width = 1
