@@ -66,3 +66,7 @@ ITEM.actions = {
 "suppression1",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/chinese_assault_rifle/wpn_type93_fire.wav",
+}

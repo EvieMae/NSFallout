@@ -81,3 +81,7 @@ ITEM.WalkAnim = "walk_ar2"
 ITEM.RunAnim = "run_ar2"
 
 ITEM.fireRange = 1500
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/chinese_assault_rifle/wpn_type93_fire.wav",
+}

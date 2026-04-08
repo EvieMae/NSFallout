@@ -73,3 +73,7 @@ ITEM.actions = {
 "doubletap_precision",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/cowboy_repeater/wpn_cowrepeat_fire_2d_01.wav",
+}

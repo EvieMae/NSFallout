@@ -64,3 +64,8 @@ ITEM.scaling = { --added to damage calculation
 	["talent"] = 0.2,
 }
 --]]
+
+
+ITEM.AttackSounds = {
+	"weapons/waraxe/skyrim_waraxe_swing1.mp3",
+}

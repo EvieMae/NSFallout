@@ -76,3 +76,7 @@ ITEM.WalkAnim = "walk_shotgun"
 ITEM.RunAnim = "run_shotgun"
 
 ITEM.fireRange = 500
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/caravan_shotgun/wpn_caravanshotgun.wav",
+}

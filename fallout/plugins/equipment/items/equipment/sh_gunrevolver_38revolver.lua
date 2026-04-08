@@ -67,3 +67,7 @@ ITEM.actions = {
 "suppressionpistol",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/police_pistol/wpn_fire_357revolver_01.wav",
+}

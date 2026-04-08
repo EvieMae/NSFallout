@@ -74,3 +74,9 @@ ITEM.actions = {
 "suppressionpistol",
 
 }
+
+ITEM.fireRange = 500
+
+ITEM.AttackSounds = {
+	"weapons/fwp_10mmpistol/10mmpistol/10mmpistolshoot.wav",
+}

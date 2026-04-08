@@ -115,9 +115,45 @@ ENT.FootstepSounds = {
 --sound plays when the CEnt does an action
 --weapon attack sounds will overwrite these if they are set
 ENT.AttackSounds = {
-	"vo/npc/male01/likethat.wav",
-	"vo/npc/male01/evenodds.wav",
-	"weapons/ar2/fire1.wav",
+	"vj_fallout/human/maleadult03/fiend_attack01.wav",
+	"vj_fallout/human/maleadult03/fiend_attack02.wav",
+	"vj_fallout/human/maleadult03/fiend_attack03.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse06.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse01.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse02.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse03.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse04.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse05.wav",
+	"vj_fallout/human/maleadult03/fie_normaltocombat01.wav",
+	"vj_fallout/human/maleadult03/fie_normaltocombat02.wav",
+	"vj_fallout/human/maleadult03/fie_normaltocombat03.wav",
+	
+	
+	"vj_fallout/human/maleadult02/b_attack01.wav",
+	"vj_fallout/human/maleadult02/b_attack02.wav",
+	"vj_fallout/human/maleadult02/b_attack03.wav",
+	"vj_fallout/human/maleadult02/b_attack04.wav",
+	"vj_fallout/human/maleadult02/b_attack05.wav",
+	"vj_fallout/human/maleadult02/b_attack06.wav",
+	"vj_fallout/human/maleadult02/b_attack07.wav",
+	"vj_fallout/human/maleadult02/b_attack08.wav",
+	"vj_fallout/human/maleadult02/b_attack09.wav",
+	"vj_fallout/human/maleadult02/b_attack10.wav",
+	"vj_fallout/human/maleadult02/b_attack11.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_alerttocombat_001751e3_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_alerttocombat_001751e4_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_alerttocombat_001751e2_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_assault_0017510c_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_assault_0017510b_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_assault_0017510a_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_attack_0014f00e_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_attack_0014f010_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_attack_0014f012_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_attack_001751fa_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_attack_001751fb_1.wav",
+	"vj_fallout/human/maleadult05/vdialogueg_attack_001751fc_1.wav",
+	
+	
 }
 
 --sound plays when the CEnt is moving
@@ -135,36 +171,43 @@ ENT.IdleSounds = {
 
 --sounds plays when CEnt dies
 ENT.DeathSounds = {
-	"vo/coast/odessa/male01/nlo_cubdeath01.wav",
-	"vo/coast/odessa/male01/nlo_cubdeath02.wav",
-	"ambient/voices/m_scream1.wav",
-}
+	"vj_fallout/human/maleadult03/death01.wav",
+	"vj_fallout/human/maleadult04/generic_hit_0017523a_1.wav",
+	"vj_fallout/human/maleadult04/generic_hit_0017523b_1.wav",
+	"vj_fallout/human/maleadult05/generic_hit_0017523c_1.wav",
+	"vj_fallout/human/maleadult05/generic_hit_00175238_1.wav",
+	"vj_fallout/human/maleadult05/generic_hit_00175239_1.wav",
+	"vj_fallout/human/maleadult03/death03.wav",
+	"vj_fallout/human/maleadult03/death02.wav",
+	}
 
 --sound plays when the CEnt is attacked
 ENT.PainSounds = {
-	"vo/npc/male01/pain01.wav",
-	"vo/npc/male01/pain02.wav",
-	"vo/npc/male01/pain03.wav",
-	"vo/npc/male01/pain04.wav",
-	"vo/npc/male01/pain05.wav",
-	"vo/npc/male01/pain06.wav",
-	"vo/npc/male01/pain07.wav",
-	"vo/npc/male01/pain08.wav",
-	"vo/npc/male01/pain09.wav",
-	"vo/npc/male01/help01.wav",
+	"vj_fallout/human/maleadult04/generic_hit_0017523a_1.wav",
+	"vj_fallout/human/maleadult04/generic_hit_0017523b_1.wav",
+	"vj_fallout/human/maleadult04/generic_hit_0017523c_1.wav",
+	"vj_fallout/human/maleadult03/death03.wav",
+	"vj_fallout/human/maleadult03/death02.wav",
+	"vj_fallout/human/maleadult08/b_hit04.wav",
+	"vj_fallout/human/maleadult08/b_hit05.wav",
+	"vj_fallout/human/maleadult08/b_hit06.wav",
+	"vj_fallout/human/maleadult08/b_hit07.wav",
+	"vj_fallout/human/maleadult08/b_hit01.wav",
+	"vj_fallout/human/maleadult08/b_hit02.wav",
 }
 
 --sound plays when the CEnt hits another target
 --usually used for things like gunshots
 ENT.HitSounds = {
-	"vo/npc/male01/pain01.wav",
-	"vo/npc/male01/pain02.wav",
-	"vo/npc/male01/pain03.wav",
-	"vo/npc/male01/pain04.wav",
-	"vo/npc/male01/pain05.wav",
-	"vo/npc/male01/pain06.wav",
-	"vo/npc/male01/pain07.wav",
-	"vo/npc/male01/pain08.wav",
-	"vo/npc/male01/pain09.wav",
-	"vo/npc/male01/help01.wav",
+	"vj_fallout/human/maleadult04/generic_hit_0017523a_1.wav",
+	"vj_fallout/human/maleadult04/generic_hit_0017523b_1.wav",
+	"vj_fallout/human/maleadult04/generic_hit_0017523c_1.wav",
+	"vj_fallout/human/maleadult03/death03.wav",
+	"vj_fallout/human/maleadult03/death02.wav",
+	"vj_fallout/human/maleadult08/b_hit04.wav",
+	"vj_fallout/human/maleadult08/b_hit05.wav",
+	"vj_fallout/human/maleadult08/b_hit06.wav",
+	"vj_fallout/human/maleadult08/b_hit07.wav",
+	"vj_fallout/human/maleadult08/b_hit01.wav",
+	"vj_fallout/human/maleadult08/b_hit02.wav",
 }

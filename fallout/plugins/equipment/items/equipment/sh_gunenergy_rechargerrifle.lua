@@ -71,3 +71,7 @@ ITEM.actions = {
 
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/recharger_rifle/wpn_rechargerrifle_fire_2d_01.wav",
+}

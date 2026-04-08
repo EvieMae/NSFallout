@@ -68,3 +68,7 @@ ITEM.actions = {
 "runngunshotgun",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/riot_shotgun/fire.wav",
+}

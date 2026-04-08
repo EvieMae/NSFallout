@@ -75,3 +75,7 @@ ITEM.actions = {
 "suppressionpistol",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/pistolchinese/wpn_chinesepistol.wav",
+}

@@ -72,3 +72,7 @@ ITEM.actions = {
 "doubletap_precision",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/marksman_carbine/wpn_assaultcarbine.wav",
+}

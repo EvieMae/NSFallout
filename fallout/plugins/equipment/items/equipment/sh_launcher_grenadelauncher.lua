@@ -49,3 +49,7 @@ ITEM.skillScaleAcc = {
 ITEM.actions = {	
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/grenade_launcher/wpn_grenadelauncher_fire_2d_01.wav",
+}

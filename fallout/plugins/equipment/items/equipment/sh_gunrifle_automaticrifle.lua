@@ -73,3 +73,7 @@ ITEM.actions = {
 "aimedshot_precision",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/automaticrifle/automaticrifle_fire.wav",
+}

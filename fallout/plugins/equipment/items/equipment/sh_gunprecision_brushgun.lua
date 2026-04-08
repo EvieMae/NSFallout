@@ -71,3 +71,7 @@ ITEM.actions = {
 "doubletap_precision",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/brush_gun/wpn_brushgun.wav",
+}

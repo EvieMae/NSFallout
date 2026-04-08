@@ -69,3 +69,6 @@ ITEM.actions = {
 "burstfire_smg",
 
 }
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/laser_rcw/wpn_laserrcw_fire2d.wav",
+}

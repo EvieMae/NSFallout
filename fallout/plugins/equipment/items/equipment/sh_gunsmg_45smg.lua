@@ -75,3 +75,7 @@ ITEM.actions = {
 
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fwp_tommygun/tommygun/tommygunshoot.wav",
+}

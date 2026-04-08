@@ -79,3 +79,7 @@ ITEM.WalkAnim = "walk_smg1"
 ITEM.RunAnim = "run_smg1"
 
 ITEM.fireRange = 500
+
+ITEM.AttackSounds = {
+	"weapons/m733/ar15-3.wav",
+}

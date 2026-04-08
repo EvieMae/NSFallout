@@ -72,3 +72,7 @@ ITEM.actions = {
 "aimedshot_sniper",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fwp_huntingrifle/huntingrifle/hrshoot.wav",
+}

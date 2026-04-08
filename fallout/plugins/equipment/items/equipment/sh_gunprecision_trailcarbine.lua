@@ -71,3 +71,7 @@ ITEM.actions = {
 "doubletap_precision",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/trail_carbine/wpn_trailcarbine_fire_2d_01.wav",
+}

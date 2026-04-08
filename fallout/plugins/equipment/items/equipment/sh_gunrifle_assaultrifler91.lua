@@ -73,3 +73,7 @@ ITEM.actions = {
 "suppression1",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/assault_rifle_g3/r91fire.wav",
+}

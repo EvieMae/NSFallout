@@ -74,3 +74,7 @@ ITEM.actions = {
 
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fwp_plasmapistol/plasmapistol/plasmapistolshoot.wav",
+}

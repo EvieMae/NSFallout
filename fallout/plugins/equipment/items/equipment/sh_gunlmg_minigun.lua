@@ -67,3 +67,7 @@ ITEM.actions = {
 "suppression1",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/minigun/wpn_minigun_spin_lpm.wav",
+}

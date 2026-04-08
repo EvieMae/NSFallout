@@ -68,3 +68,7 @@ ITEM.actions = {
 	"aimedshot_precision",
 	"suppressionpistol",
 }
+
+ITEM.AttackSounds = {
+	"weapons/22smgsil/22smgshoot.wav",
+}

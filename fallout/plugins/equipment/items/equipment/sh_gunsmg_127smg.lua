@@ -74,3 +74,7 @@ ITEM.actions = {
 
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fwp_127pistol/127pistol/127shoot.wav",
+}

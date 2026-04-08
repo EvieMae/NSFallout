@@ -73,3 +73,7 @@ ITEM.actions = {
 "aimedshot_sniper",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/14mm_pistol/14mmfire.wav",
+}

@@ -69,3 +69,7 @@ ITEM.actions = {
 "suppressionpistol",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/10mm_pistol/pistol_firev5.wav",
+}

@@ -73,3 +73,7 @@ ITEM.actions = {
 "doubletap_precision",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fwp_varmintrifle/varmintrifle/varmintshoot.wav",
+}

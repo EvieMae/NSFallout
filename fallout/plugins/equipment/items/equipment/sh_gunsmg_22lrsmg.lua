@@ -73,3 +73,7 @@ ITEM.actions = {
 "suppression1",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/22smgsil/wpn_silenced22smg.wav",
+}

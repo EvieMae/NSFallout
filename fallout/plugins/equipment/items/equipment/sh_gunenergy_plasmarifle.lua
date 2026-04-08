@@ -72,3 +72,7 @@ ITEM.actions = {
 "overcharge",
 
 }
+
+ITEM.AttackSounds = {
+	"weapons/fallout_new_vegas/plasma_weapons/wpn_plasmarifle_fire_2d_02.wav",
+}
