@@ -73,6 +73,13 @@ ITEM.actions = {
 "suppression1",
 
 }
+ITEM.firearm = true
+
+ITEM.IdleAnim = "idle_smg1"
+ITEM.WalkAnim = "walk_smg1"
+ITEM.RunAnim = "run_smg1"
+
+ITEM.fireRange = 500
 
 ITEM.AttackSounds = {
 	"weapons/fwp_10mmsmg/10mmsmg/10mmsmgshoot.wav",

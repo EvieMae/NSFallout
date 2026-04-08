@@ -72,6 +72,14 @@ ITEM.actions = {
 
 }
 
+ITEM.firearm = true
+
+ITEM.IdleAnim = "idle_ar2"
+ITEM.WalkAnim = "walk_ar2"
+ITEM.RunAnim = "run_ar2"
+
+ITEM.fireRange = 500
+
 ITEM.AttackSounds = {
 	"weapons/fallout_new_vegas/trail_carbine/wpn_trailcarbine_fire_2d_01.wav",
 }

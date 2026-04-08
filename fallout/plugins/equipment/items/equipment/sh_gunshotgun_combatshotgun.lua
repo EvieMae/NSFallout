@@ -69,6 +69,14 @@ ITEM.actions = {
 
 }
 
+ITEM.firearm = true
+
+ITEM.IdleAnim = "idle_shotgun"
+ITEM.WalkAnim = "walk_shotgun"
+ITEM.RunAnim = "run_shotgun"
+
+ITEM.fireRange = 500
+
 ITEM.AttackSounds = {
 	"weapons/fallout_new_vegas/combat_shotgun/wpn_shotguncombat_fire_2d.wav",
 }

@@ -100,7 +100,6 @@ ENT.SoundVolume = 1
 --left blank since weapons will give actions to it
 --if you add stuff like dodge or block it may just spam it
 ENT.actionsAI = {
-"grenade_frag",
 "dodge",
 
 }

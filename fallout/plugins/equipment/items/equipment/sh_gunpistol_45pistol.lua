@@ -76,6 +76,14 @@ ITEM.actions = {
 
 }
 
+ITEM.firearm = true
+
+ITEM.IdleAnim = "idle_revolver"
+ITEM.WalkAnim = "walk_revolver"
+ITEM.RunAnim = "run_revolver"
+
+ITEM.fireRange = 500
+
 ITEM.AttackSounds = {
 	"weapons/fallout_new_vegas/9mm_smg/wpn_9mm_fire_2d_01.wav",
 }

@@ -69,6 +69,14 @@ ITEM.actions = {
 	"suppressionpistol",
 }
 
+ITEM.firearm = true
+
+ITEM.IdleAnim = "idle_revolver"
+ITEM.WalkAnim = "walk_revolver"
+ITEM.RunAnim = "run_revolver"
+
+ITEM.fireRange = 500
+
 ITEM.AttackSounds = {
 	"weapons/22smgsil/22smgshoot.wav",
 }

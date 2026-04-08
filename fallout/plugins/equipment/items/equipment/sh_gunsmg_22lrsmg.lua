@@ -74,6 +74,14 @@ ITEM.actions = {
 
 }
 
+ITEM.firearm = true
+
+ITEM.IdleAnim = "idle_smg1"
+ITEM.WalkAnim = "walk_smg1"
+ITEM.RunAnim = "run_smg1"
+
+ITEM.fireRange = 500
+
 ITEM.AttackSounds = {
 	"weapons/22smgsil/wpn_silenced22smg.wav",
 }

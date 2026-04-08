@@ -50,6 +50,14 @@ ITEM.actions = {
 
 }
 
+ITEM.firearm = true
+
+ITEM.IdleAnim = "idle_shotgun"
+ITEM.WalkAnim = "walk_shotgun"
+ITEM.RunAnim = "run_shotgun"
+
+ITEM.fireRange = 500
+
 ITEM.AttackSounds = {
 	"weapons/fallout_new_vegas/grenade_launcher/wpn_grenadelauncher_fire_2d_01.wav",
 }

@@ -75,6 +75,14 @@ ITEM.actions = {
 
 }
 
+ITEM.firearm = true
+
+ITEM.IdleAnim = "idle_shotgun"
+ITEM.WalkAnim = "walk_shotgun"
+ITEM.RunAnim = "run_shotgun"
+
+ITEM.fireRange = 500
+
 ITEM.AttackSounds = {
 	"weapons/fwp_huntingshotgun/huntingshotgun/hsshoot.wav",
 }

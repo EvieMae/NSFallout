@@ -70,6 +70,14 @@ ITEM.actions = {
 
 }
 
+ITEM.firearm = true
+
+ITEM.IdleAnim = "idle_revolver"
+ITEM.WalkAnim = "walk_revolver"
+ITEM.RunAnim = "run_revolver"
+
+ITEM.fireRange = 500
+
 ITEM.AttackSounds = {
 	"weapons/pistol32/wpn_pistol32_fire.wav",
 }
