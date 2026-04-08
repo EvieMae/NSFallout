@@ -110,6 +110,10 @@ ACT.category = "Default"
 ACT.costAP = 1
 ACT.attackOverwrite = function(actionTbl, client, trace)
 	if(client:IsPlayer()) then
+		if(actionTbl.costAP) then
+			client:addAP(actionTbl.costAP * -1)
+		end
+	
 		local char = client:getChar()
 		local inventory = char:getInv()
 		
@@ -131,6 +135,10 @@ ACT.attackOverwrite = function(actionTbl, client, trace)
 			nut.log.addRaw(combatMsg, 2)
 		end
 	else
+		if(actionTbl.costAP) then
+			client:addAP(actionTbl.costAP * -1)
+		end
+	
 		local combatMsg = client:Name().. " reloads their weapon(s)."
 		
 		nut.plugin.list["chatboxextra"]:ChatboxSend(client, "react_npc", combatMsg)

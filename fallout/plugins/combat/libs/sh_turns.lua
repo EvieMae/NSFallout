@@ -444,15 +444,9 @@ PLUGIN.helperFuncs["turnProcess"] = function(self, turn, you)
 		end
 		
 		local AI = self:getTurnAI()
-		print(AI)
-		
 		if(AI) then
 			local tree = PLUGIN.AITree[AI]
-
-			print(tree)
-
 			if(tree) then
-				print("Process the turn")
 				local turnData = self:getTurnData()
 
 				tree.turnProcess(self, turnData)
@@ -610,6 +604,19 @@ if(SERVER) then
 			PLUGIN.turns[id].controllers = {}
 			
 			PLUGIN:turnSyncByID(client, id)
+		end
+	end)
+	
+	netstream.Hook("nut_turnCDReset", function(client, turnID)
+		--only admins can create turns
+		if(client:IsAdmin() and PLUGIN.turns[turnID]) then
+			local entities = PLUGIN.turns[turnID].entities
+		
+			for entity, v in pairs(entities) do
+				entity:clearCooldowns()
+			end
+			
+			client:notify("Cooldowns reset.")
 		end
 	end)
 	

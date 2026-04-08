@@ -11,15 +11,23 @@ nut.config.add("zfarEnabled", false, "Whether it's on at all or not.", nil, {
 	category = "Map"
 })
 
-local function PluginCView(ply, pos, ang, fov, znear, zfar)
-	if(nut.config.get("zfarEnabled", false)) then
-		local simplethird = GetConVar("simple_thirdperson_enabled")
+local simplethird = GetConVar("simple_thirdperson_enabled")
+local nutTP = GetConVar("nut_tp_enabled")
+
+local function PluginCView(ply, pos, angles, fov, znear, zfar)
+	if(nut.config.get("zfarEnabled", false)) then	
+		local blocked = true
 	
+		if(nutTP and !nutTP:GetBool()) then
+			blocked = false
+		end
+	
+		--turn off when simple thirdperson is used
 		if (simplethird and !simplethird:GetBool()) and IsValid(ply) then
-			return {zfar = nut.config.get("zfar", 84600)}
+			blocked = false
 		end
 		
-		if(!simplethird) then
+		if(!blocked) then
 			return {zfar = nut.config.get("zfar", 84600)}
 		end
 

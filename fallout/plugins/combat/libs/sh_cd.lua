@@ -47,8 +47,11 @@ end
 --clears all of a player's cooldowns
 --function playerMeta:clearCooldowns()
 PLUGIN.helperFuncs["clearCooldowns"] = function(self)
-	local char = self:getChar()
-	char.cooldowns = nil
+	local cooldowns = self:getCooldowns()
+	
+	for k, v in pairs(cooldowns) do
+		self:removeCooldown(k)
+	end
 end
 
 if(SERVER) then

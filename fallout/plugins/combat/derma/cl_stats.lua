@@ -516,7 +516,7 @@ function PANEL:Init()
 		Derma_Query("Do you want to respec?", "Respec", "Yes", function()
 			netstream.Start("nut_respec")
 			
-			timer.Simple(0, function()
+			timer.Simple(0.5, function()
 				self:ReopenPanel()
 			end)
 		end, "No")
@@ -816,7 +816,7 @@ function PANEL:PerkChoose(button)
 			
 				netstream.Start("perkAdd", v.uid)
 				
-				timer.Simple(0, function()
+				timer.Simple(0.5, function()
 					self:ReopenPanel()
 				end)
 			end, "No", function()

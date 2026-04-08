@@ -1018,7 +1018,7 @@ function ITEM:getDesc(partial)
 			
 			for k, v in pairs(boostsSkill or {}) do
 				if(v != 0) then
-					desc = desc .. "\n " ..(nut.skills.list[k] and nut.skills.list[k].name).. ": " ..v
+					desc = desc .. "\n " ..((nut.skills.list[k] and nut.skills.list[k].name) or "Unknown").. ": " ..v
 				end
 			end
 		end

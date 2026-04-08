@@ -278,7 +278,7 @@ local PANEL = {}
 		
 		--side panel
 		local side = vgui.Create("DFrame", self)
-		side:SetSize(150, 300)
+		side:SetSize(200, 300)
 		side:Center()
 		side:SetTitle("")
 		side:MakePopup()
@@ -333,6 +333,10 @@ local PANEL = {}
 			
 			self:CreateButton("Add Players", scroll2, function(this)
 				self:TeamPopup()
+			end)
+			
+			self:CreateButton("Reset Cooldowns", scroll2, function(this)
+				netstream.Start("nut_turnCDReset", turnID)
 			end)
 			
 			self:CreateButton("Next Turn", scroll2, function(this)
