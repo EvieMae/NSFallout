@@ -96,6 +96,9 @@ ENT.SoundVolume = 1
 --left blank since weapons will give actions to it
 --if you add stuff like dodge or block it may just spam it
 ENT.actionsAI = {
+"grenade_frag",
+"dodge",
+
 }
 
 --the range at which the CEnt will do its actions
@@ -115,21 +118,24 @@ ENT.FootstepSounds = {
 --sound plays when the CEnt does an action
 --weapon attack sounds will overwrite these if they are set
 ENT.AttackSounds = {
-	"vj_fallout/human/maleadult03/fiend_attack01.wav",
-	"vj_fallout/human/maleadult03/fiend_attack02.wav",
-	"vj_fallout/human/maleadult03/fiend_attack03.wav",
-	"vj_fallout/human/maleadult03/fiend_deathresponse06.wav",
-	"vj_fallout/human/maleadult03/fiend_deathresponse01.wav",
-	"vj_fallout/human/maleadult03/fiend_deathresponse02.wav",
-	"vj_fallout/human/maleadult03/fiend_deathresponse03.wav",
-	"vj_fallout/human/maleadult03/fiend_deathresponse04.wav",
-	"vj_fallout/human/maleadult03/fiend_deathresponse05.wav",
+ 
 	"vj_fallout/human/maleadult03/fie_normaltocombat01.wav",
 	"vj_fallout/human/maleadult03/fie_normaltocombat02.wav",
 	"vj_fallout/human/maleadult03/fie_normaltocombat03.wav",
+	"vj_fallout/human/maleadult03/fiend_attack01.wav",
+	"vj_fallout/human/maleadult03/fiend_attack02.wav",
+	"vj_fallout/human/maleadult03/fiend_attack03.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse01.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse02.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse04.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse05.wav",
+	"vj_fallout/human/maleadult03/fiend_deathresponse06.wav",
 	
-	
-	"vj_fallout/human/maleadult02/b_attack01.wav",
+}
+
+--sound plays when the CEnt is moving
+ENT.IdleSounds = {
+ 	"vj_fallout/human/maleadult02/b_attack01.wav",
 	"vj_fallout/human/maleadult02/b_attack02.wav",
 	"vj_fallout/human/maleadult02/b_attack03.wav",
 	"vj_fallout/human/maleadult02/b_attack04.wav",
@@ -152,21 +158,6 @@ ENT.AttackSounds = {
 	"vj_fallout/human/maleadult05/vdialogueg_attack_001751fa_1.wav",
 	"vj_fallout/human/maleadult05/vdialogueg_attack_001751fb_1.wav",
 	"vj_fallout/human/maleadult05/vdialogueg_attack_001751fc_1.wav",
-	
-	
-}
-
---sound plays when the CEnt is moving
-ENT.IdleSounds = {
-	"vo/npc/male01/answer32.wav",
-	"vo/npc/male01/answer33.wav",
-	"vo/npc/male01/answer34.wav",
-	"vo/npc/male01/answer35.wav",
-	"vo/npc/male01/answer36.wav",
-	"vo/npc/male01/answer37.wav",
-	"vo/npc/male01/answer38.wav",
-	"vo/npc/male01/answer39.wav",
-	"vo/npc/male01/question16.wav",
 }
 
 --sounds plays when CEnt dies
