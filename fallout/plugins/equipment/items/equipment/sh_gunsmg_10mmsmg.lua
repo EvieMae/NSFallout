@@ -73,7 +73,7 @@ ITEM.actions = {
 "suppression1",
 
 }
-ITEM.firearm = true
+ITEM.firearm = true
 
 ITEM.IdleAnim = "idle_smg1"
 ITEM.WalkAnim = "walk_smg1"
