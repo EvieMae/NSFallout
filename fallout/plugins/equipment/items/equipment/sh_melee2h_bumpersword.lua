@@ -66,6 +66,12 @@ ITEM.scaling = { --added to damage calculation
 --]]
 
 
+ITEM.IdleAnim = "idle_melee2"
+ITEM.WalkAnim = "walk_melee2"
+ITEM.RunAnim = "run_melee2"
+
+ITEM.fireRange = 80
+
 ITEM.AttackSounds = {
 	"weapons/warhammer/skyrim_warhammer_swing1.mp3",
 }

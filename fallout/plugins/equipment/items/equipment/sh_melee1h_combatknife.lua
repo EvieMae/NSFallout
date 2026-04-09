@@ -64,6 +64,13 @@ ITEM.scaling = { --added to damage calculation
 }
 --]]
 
+
+ITEM.IdleAnim = "idle_knife"
+ITEM.WalkAnim = "walk_knife"
+ITEM.RunAnim = "run_knife"
+
+ITEM.fireRange = 80
+
 ITEM.AttackSounds = {
 	"weapons/dagger/skyrim_dagger_swing1.mp3",
 }
