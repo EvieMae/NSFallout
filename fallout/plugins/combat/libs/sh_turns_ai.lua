@@ -4,6 +4,17 @@ local PLUGIN = PLUGIN
 
 PLUGIN.AITree = {}
 
+--the weights on where NPCs target which body parts
+--higher number, high chance to decide to target it
+PLUGIN.partChance = {
+	["Body"] = 20,
+	["Head"] = 4,
+	["Left Arm"] = 8,
+	["Right Arm"] = 8,
+	["Left Leg"] = 8,
+	["Right Leg"] = 8,
+}
+
 --gets the actions that can be used by the entity in auto turn based combat
 PLUGIN.helperFuncs["getTurnAIActions"] = function(self, id)
 	if(self.combat) then
@@ -75,6 +86,23 @@ function PLUGIN:CheckLOS(entity, target)
 	return PLUGIN:CanSeePos(entity:EyePos(), target:WorldSpaceCenter(), {entity, target}, 0.9)
 end
 
+local function WeightedRandom(items)
+	local sum = 0
+	
+	for part, chance in pairs(items) do
+		sum = sum + (chance or 1)
+	end
+
+	local select = math.random() * sum
+
+	for part, chance in pairs(items) do
+		select = select - (chance or 1)
+		if select < 0 then 
+			return part 
+		end
+	end
+end
+
 function PLUGIN:ChooseAttack(entity, target, delay)
 	if(!PLUGIN:CheckLOS(entity, target)) then return end --if you cant see them, dont attack them
 
@@ -134,9 +162,12 @@ function PLUGIN:ChooseAttack(entity, target, delay)
 
 			local actionTbl = (action.uid and ACTS.actions[action.uid]) or {}
 		
+			local part = WeightedRandom(PLUGIN.partChance)
+		
 			local data = {
 				attacker = entity,
 				trace = trace,
+				partString = part,
 				--weapon = weapon,
 				action = action,
 				actionTbl = actionTbl,
