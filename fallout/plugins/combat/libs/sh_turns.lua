@@ -86,7 +86,7 @@ PLUGIN.turns = PLUGIN.turns or {
 --gets turn ID of the turn system a player is in, if they are in one
 PLUGIN.helperFuncs["getTurnID"] = function(self)
 	--checks if the player is in a turn system
-	--if they art, return the turn ID
+	--if they are, return the turn ID
 	for k, v in pairs(PLUGIN.turns) do
 		if(v.controllers and v.controllers[self]) then
 			return k
@@ -600,6 +600,16 @@ if(SERVER) then
 	netstream.Hook("nut_turnClear", function(client, id)
 		--only admins can create turns
 		if(client:IsAdmin()) then
+			--clear their cooldowns first
+			if(PLUGIN.turns[turnID]) then
+				local entities = PLUGIN.turns[turnID].entities
+			
+				for entity, v in pairs(entities) do
+					entity:clearCooldowns()
+				end
+			end
+		
+			--clear all entities and controllers
 			PLUGIN.turns[id].entities = {}
 			PLUGIN.turns[id].controllers = {}
 			

@@ -288,6 +288,8 @@ if SERVER then
 		if(!istable(point[2])) then
 			local entity = ents.Create("nut_storage")
 			
+			local lockLevel = tonumber(point[3] or 0)
+			
 			if(IsValid(entity)) then
 				entity:SetPos(point[1])
 				entity:Spawn()
@@ -320,7 +322,19 @@ if SERVER then
 							entity:setNetVar("locked", true)
 							entity.password = math.Rand(1,1000)
 
-							entity.skillCheck = table.Random({1, 1, 1, 1, 4, 4, 8, 8, 12, 16})
+							local check = {
+								[0] = {0, 100},
+								[1] = {0, 20},
+								[2] = {20, 40},
+								[3] = {40, 60},
+								[4] = {60, 80},
+								[5] = {80, 100},
+							}
+							
+							local range = check[lockLevel] or {0, 100}
+
+							entity.skillCheck = math.random(range[1], range[2])
+
 							entity:setNetVar("desc", "Lock Strength: " ..entity.skillCheck)
 
 							entity.nutForceDelete = true
@@ -373,12 +387,15 @@ end)
 
 nut.command.add("pickablespawnadd", {
 	adminOnly = true,
-	syntax = "<string entity>",
+	syntax = "<string entity> <number 1to5>",
 	onRun = function(client, arguments)
+		local entity = arguments[1] or "nut_storage"
+		local level = arguments[2] or 0
+
 		local trace = client:GetEyeTraceNoCursor()
 		local hitpos = trace.HitPos + Vector(trace.HitNormal*5)
 		
-		table.insert(PLUGIN.gatherPoints, {hitpos, arguments[1]})
+		table.insert(PLUGIN.gatherPoints, {hitpos, entity, level})
 		PLUGIN:setGathering(PLUGIN.gatherPoints[#PLUGIN.gatherPoints])
 		
 		client:notify("Pickable spawn added.")

@@ -110,19 +110,15 @@ if (SERVER) then
 			
 			local char = activator:getChar()
 			if(char) then
-				local gatherData = PLUGIN:UpdateStamina(activator)
+				local gatherData = char:getData("gatherStamina", {})
 
-				local stamina = gatherData.stamina
+				local stamina = gatherData.stamina or 10
 				if(stamina < 1) then
 					activator:notify("You are out of stamina, and cannot scavenge any more for now.")
 				
 					return false
 				else
-					stamina = stamina - 1
-					gatherData.stamina = stamina
-					gatherData.lastTime = CurTime()
-					
-					char:setData("gather", gatherData)
+					PLUGIN:UpdateStamina(client, char, -1)
 				end
 			end
 			

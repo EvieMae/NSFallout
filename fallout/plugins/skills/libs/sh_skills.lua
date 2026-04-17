@@ -13,11 +13,17 @@ local function createSkillCheck(skillID, commandName)
 			local roll = d20+skill*0.1
 			
 			local critText = ""
+			
+			--natural crit
+			if(d20 == 20) then
+				critText = " (Crit Success!)"
+			end
+
 			local crit = client:rollCrit()
 			if(crit) then
 				roll = roll * crit
 				
-				critText = " (Crit!)"
+				critText = " (Lucky!)"
 			end
 			
 			roll = math.Round(roll)

@@ -57,52 +57,38 @@ local gatherItems = {
 	["vein_iron"] = true,
 }
 
-function PLUGIN:UpdateStamina(client, char)
+function PLUGIN:UpdateStamina(client, char, add)
 	local gatherStaminaMax = nut.config.get("gatherStaminaMax", 10)
-	local gatherStaminaTime = nut.config.get("gatherStaminaTime", 1440)
 
 	local char = char or client:getChar()
 	if(!char) then return {} end
 
-	local gatherData = char:getData("gather", {})
+	local gatherData = char:getData("gatherStamina", {})
 	
-	local lastTime = gatherData.lastTime
-	if(lastTime) then
-		if(lastTime > CurTime()+5) then
-			gatherData.lastTime = nil
-			gatherData.stamina = gatherStaminaMax
-		elseif(lastTime <= CurTime()) then
-			local differ = CurTime() - lastTime
-			local add = math.Round(differ / gatherStaminaTime)
+	local last = gatherData.last or 0 --helps check if the server has restarted/crashed
+	local stamina = gatherData.stamina or gatherStaminaMax
+	
+	local day = os.date("%d")
+	
+	--if it's a new day just give them a refresher
+	--technically a bonus for playing at midnight but oh well
+	if(last != day) then
+		stamina = gatherStaminaMax
+	end
+	
+	local new = math.Clamp(stamina + add, 0, gatherStaminaMax)
+	
+	gatherData.stamina = new
+	gatherData.last = day
 
-			gatherData.stamina = math.Clamp(gatherData.stamina + add, 0, gatherStaminaMax)
-		end
-	else
-		gatherData.stamina = gatherStaminaMax
+	if(stamina != new) then
+		char:setData("gatherStamina", gatherData)
 	end
 
 	return gatherData
 end
 
 if SERVER then
-	PLUGIN.StaminaReset = PLUGIN.StaminaReset or {}
-
-	--manages gathering stamina for players that are loading characters
-	function PLUGIN:PlayerLoadedChar(client, char, oldChar)
-		local gatherData = PLUGIN:UpdateStamina(client, char)
-	
-		--resets a player's stamina if this is the first time joining the server this restart
-		--this prevents annoying time errors that can crop up with the system
-		local steamID = client:SteamID64()
-		if(!PLUGIN.StaminaReset[steamID]) then
-			gatherData.lastTime = nil
-			
-			PLUGIN.StaminaReset[steamID] = true
-		end
-		
-		char:setData("gather", gatherData)
-	end
-
 	function PLUGIN:SaveData()
 		self:setData(self.gatherPoints)
 	end
@@ -124,6 +110,20 @@ if SERVER then
 
 	local gatherSpawnTime = CurTime()
 	function PLUGIN:Think()
+	
+		local gatherStaminaTime = nut.config.get("gatherStaminaTime", 1440)
+		if((self.nextGatherStamina or 0) < CurTime()) then
+			self.nextGatherStamina = CurTime() + gatherStaminaTime
+		
+			local gatherStaminaMax = nut.config.get("gatherStaminaMax", 10)
+			for k, client in ipairs(player.GetAll()) do
+				local char = client:getChar()
+				if(!char) then continue end
+			
+				PLUGIN:UpdateStamina(client, char, 1)
+			end
+		end
+	
 		if nut.config.get("gathering") then
 			if((self.nextStamina or 0) < CurTime()) then
 				self.nextStamina = CurTime() + 300
@@ -222,11 +222,11 @@ if(CLIENT) then
 	
 		panel.gather = gather
 	
-		local gatherData = PLUGIN:UpdateStamina(LocalPlayer())
+		local gatherData = char:getData("gatherStamina", {})
 	
-		local gatherStamina = gatherData.stamina or nut.config.get("gatherStaminaMax")
-		if (gatherStamina) then
-			panel.gather:SetText("Gathering Stamina: " ..gatherStamina.. ".")
+		local stamina = gatherData.stamina or nut.config.get("gatherStaminaMax", 10)
+		if (stamina) then
+			panel.gather:SetText("Gathering Stamina: " ..stamina.. ".")
 		end
 	end
 end

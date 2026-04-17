@@ -59,7 +59,10 @@ function PLUGIN:getAttackData(attacker, info, fakeAttack)
 				end
 				
 				if(action.CD) then
-					attacker:addCooldown(action.uid, action.CD, weapon)
+					--check if they are in a turn order
+					if(attacker:getTurnID()) then
+						attacker:addCooldown(action.uid, action.CD, weapon)
+					end
 				end
 			else
 				--attacker:notify("You do not have enough mana to cast " ..action.name.. ".")
