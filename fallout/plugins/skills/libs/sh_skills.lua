@@ -16,14 +16,14 @@ local function createSkillCheck(skillID, commandName)
 			
 			--natural crit
 			if(d20 == 20) then
-				critText = " (Crit Success!)"
+				critText = "(Crit Success!)"
 			end
 
 			local crit = client:rollCrit()
 			if(crit) then
 				roll = roll * crit
 				
-				critText = " (Lucky!)"
+				critText = "(Lucky!)"
 			end
 			
 			roll = math.Round(roll)
@@ -39,7 +39,7 @@ local function createSkillCheck(skillID, commandName)
 				crit = 1
 			end
 
-			local rollText = "rolls " ..d20*crit.. " + " ..math.Round(skill*0.1*crit).. " Stat Bonus "..critText..((bonus and (" + Bonus Of " ..bonus.. " ")) or " ").. " = " ..roll.. " for " ..name.. "."
+			local rollText = "rolls " ..math.Round(d20*crit).. " + " ..math.Round(skill*0.1*crit).. " Stat Bonus "..critText..((bonus and (" + " ..bonus.. " ")) or " ").. "= " ..roll.. " for " ..name.. "."
 
 			if(nut.plugin.list["chatboxextra"]) then
 				nut.plugin.list["chatboxextra"]:ChatboxSend(client, "skillcheck", client:Name().. " " ..rollText)
