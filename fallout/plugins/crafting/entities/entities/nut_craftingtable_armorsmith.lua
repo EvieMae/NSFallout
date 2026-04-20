@@ -10,3 +10,4 @@ ENT.RenderGroup = RENDERGROUP_BOTH
 --AddCSLuaFile('cl_init.lua')
 
 ENT.model = "models/mosi/fallout4/furniture/workstations/weapon_workbench_2.mdl"
+--ENT.model = "models/props_c17/FurnitureTable002a.mdl"

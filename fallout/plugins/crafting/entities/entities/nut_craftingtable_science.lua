@@ -10,3 +10,4 @@ ENT.RenderGroup = RENDERGROUP_BOTH
 ENT.profession = "science"
 
 ENT.model = "models/maxib123/workbench.mdl"
+--ENT.model = "models/props_c17/FurnitureTable002a.mdl"

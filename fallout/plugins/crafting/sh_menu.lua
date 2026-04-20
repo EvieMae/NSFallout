@@ -439,14 +439,12 @@ else
 	function PANEL:GetRecipes()
 		local level = LocalPlayer():getChar():getData("craft", {})[self.profession] or 0
 
-		if(self.profession) then
-			self:SetTitle(string.upper(self.profession))--.. " Level: " ..math.Round(level)))
+		local name = self.ent and self.ent.PrintName
+		if(name) then
+			self:SetTitle(string.upper(name))
 		end
 		
 		for class, itemTable in SortedPairsByMemberValue(RECIPES:GetAll(), "category") do
-			if(itemTable.level and level < itemTable.level) then continue end
-			if(itemTable.tblLevel and self.ent.tblLevel and self.ent.tblLevel < itemTable.tblLevel) then continue end
-		
 			local canAdd = self:CanAddRecipe(itemTable)
 			if(canAdd) then
 				local category = itemTable.category
@@ -486,23 +484,36 @@ else
 	end
 	
 	function PANEL:CanAddRecipe(itemTable)
+		local client = LocalPlayer()
+		local char = client:getChar()
 		local entity = self.ent
-	
-		if(self.profession) then
-			local trait = LocalPlayer():hasTrait(self.profession)
 		
-			if(checkProfession(self.profession, itemTable.profession) and trait) then
-				return true
-			end
-		elseif(entity.recipes) then
-			if(entity.recipes[itemTable.uid]) then
-				return true
-			end
-		elseif(entity.craftCategory) then
-			if(entity.craftCategory == itemTable.category) then
-				return true
+		--forced on the entity
+		if(entity.recipes and entity.recipes[itemTable.uid]) then
+			return true
+		end
+		
+		--checks if the recipe is crafted here
+		if(itemTable.craftEnts) then
+			if(!IsValid(entity)) then return false end
+		
+			local class = entity:GetClass()
+			if(class and !table.HasValue(itemTable.craftEnts, class)) then
+				return false
 			end
 		end
+	
+		--if the recipe requires a skill level
+		if(itemTable.reqSkills) then
+			for k, v in pairs(itemTable.reqSkills) do
+				local charSkill = char:getSkill(k, 0)
+				if(charSkill < v) then
+					return false
+				end
+			end
+		end
+
+		return true
 	end
 	
 	function PANEL:AddRecipe(list, itemTable, class)

@@ -48,15 +48,7 @@ if (SERVER) then
 	end	
 
 	function ENT:Use(activator)
-		if(self.profession) then
-			if(activator:hasTrait(self.profession)) then
-				netstream.Start(activator, "nut_CraftWindow", activator, self.profession, self.PrintName, self) 
-			else
-				activator:notify("You do not know this profession.")
-			end
-		else
-			netstream.Start(activator, "nut_CraftWindow", activator, nil, self.PrintName, self)
-		end
+		netstream.Start(activator, "nut_CraftWindow", activator, nil, self.PrintName, self)
 	end
 
 	function ENT:getInv()
