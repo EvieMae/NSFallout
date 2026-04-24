@@ -159,6 +159,13 @@ function PLUGIN:getAttackData(attacker, info, fakeAttack)
 		--basic attack
 		local dmgTbl = attacker:getDamage(partString, weapon)
 		
+		--basic attacks with multi hits
+		local multi = attacker:getNetVar("multi", attacker.multi) or 1
+
+		for i = 1, multi-1 do
+			dmgTbl[#dmgTbl+1] = dmgTbl[1]
+		end
+		
 		for k, v in pairs(dmgTbl) do
 			hook.Run("nut_ActionAttackData", v, attacker, info, fakeAttack)
 			hook.Run("nut_OnCombatAttack", v, attacker, info, fakeAttack)

@@ -216,6 +216,7 @@ local function consume(client, item)
 	--buff related
 	local name = item:getName() --name of buff
 	local buffMult = 1 --buff multiplier
+	local buffMultData = {}
 	local durationB = item.durationB --buff duration in seconds
 
 	--stomach checker
@@ -224,20 +225,43 @@ local function consume(client, item)
 			return false
 		end
 	end
-	
+
 	if(item.faction and !item.faction[char:getFaction()]) then
 		client:notify("Your faction cannot use this.")
 		return false
 	end
-	
+
 	--addictions
 	if(item.addictData) then
+		local addictData = item.addictData
+	
 		local charAddict = char:getData("addict", {})
-		local addictAmt = charAddict[item.uniqueID] or 0
 		
+		--local addictID = addictData.id or item.uniqueID
+		local addictID = item.uniqueID
+		local addictAmt = charAddict[addictID] or 0
+
 		--buffMult = buffMult + (item.addictData.buffScale * charAddict)
+		for k, v in pairs(addictData.buffTbl or {}) do
+			buffMultData[k] = 1 + v*addictAmt
+		end
 		
-		charAddict[item.uniqueID] = math.min(addictAmt + (item.addictAmt or 1), item.addictMax or 100)
+		if(addictData.overdose) then
+			local chance = addictData.overdose
+			chance = chance - addictAmt
+			
+			local roll = math.random(1, 100)
+			if(roll < chance) then
+				--overdose
+				addictAmt = math.max(addictAmt-10, 0)
+				client:addHP(-20)
+				client:notify("You have overdosed on " ..item:getName().. ".")
+			end
+		end
+		
+		local newAmt = math.min(addictAmt + (addictData.addictAmt or 1), addictData.addictMax or 100)
+
+		charAddict[addictID] = newAmt
 		char:setData("addict", charAddict)
 	end
 
@@ -249,54 +273,98 @@ local function consume(client, item)
 			char:addBoost(name, buffAttrib, buffValue)
 		end
 	end
-	
+
 	-- skill boost removal
 	local skills = item:getData("skills", item.skills)
 	if (skills) then
 		--adds attribs
-		for buffAttrib, buffValue in pairs(attribs) do
-			char:addSkillBoost(name, buffAttrib, buffValue)
+		for buffSkill, buffValue in pairs(attribs) do
+			char:addSkillBoost(name, buffSkill, buffValue)
 		end
 	end
+
+	if (char and client:Alive()) then
+		--buff duration modification
+		local durationB = item.durationB
+
+		local res = item:getData("res")
+		local amp = item:getData("amp")
+		local attrib = item:getData("attrib", item.attrib)
+		local buffTbl = table.Copy(item:getData("buffTbl", item.buffTbl)) or {}
+		
+		--merges base/custom amp with crafted ones
+		for k, v in pairs(amp or {}) do
+			if(!buffTbl.amp) then buffTbl.amp = {} end
+		
+			buffTbl.amp[k] = (buffTbl.amp[k] or 0) + v
+		end
+
+		--merges base/custom res with crafted ones
+		for k, v in pairs(res or {}) do
+			if(!buffTbl.res) then buffTbl.res = {} end
+		
+			buffTbl.res[k] = (buffTbl.res[k] or 0) + v
+		end
 	
-	--buffs
-	local buff = item:getData("buffTbl", item.buffTbl)
-	if(buff) then		
-		--this duration is for turn based combat
-		if(!buff.duration) then
-			--[[
-			if(potion) then
-				buff.duration = 3 --for turn based
-			else
-				buff.duration = 6 --for turn based
+		--merges base/custom attributes with crafted ones
+		for k, v in pairs(attrib or {}) do
+			if(!buffTbl.attrib) then buffTbl.attrib = {} end
+		
+			buffTbl.attrib[k] = (buffTbl.attrib[k] or 0) + v
+		end
+
+		--buffs
+		if(!table.IsEmpty(buffTbl)) then
+			--this duration is for turn based combat
+			if(!buffTbl.duration) then
+				--[[
+				if(potion) then
+					buff.duration = 3 --for turn based
+				else
+					buff.duration = 6 --for turn based
+				end
+				--]]
 			end
-			--]]
-		end
-		
-		if(!buff.uid) then
-			buff.uid = item.uniqueID
-		end
-		
-		if(!buff.name) then
-			buff.name = name
-		end
-	
-		client:addBuff(buff)
-		
-		if(buff or attribs) then
-			--timer for buff removal
-			if(timer.Exists("DrugEffect_" ..name.. "_" ..client:EntIndex())) then --refreshes existing buffs if they exist
-				timer.Adjust("DrugEffect_" ..name.. "_" ..client:EntIndex(), durationB, 1, function()
-					buffRemoval(item, client, charID, name)
-				end)
-			else				
-				timer.Create("DrugEffect_" ..name.. "_" ..client:EntIndex(), durationB, 1, function()
-					buffRemoval(item, client, charID, name)
-				end)
+			
+			if(!buffTbl.uid) then
+				buffTbl.uid = item.uniqueID
 			end
+			
+			if(!buffTbl.name) then
+				buffTbl.name = name
+			end
+			
+			for buffType, buffVal in pairs(buffTbl) do
+				local buffMult = buffMultData[buffType]
+
+				if(buffMult) then
+					if(isnumber(buffVal)) then
+						buffTbl[buffType] = buffVal * buffMult
+					elseif(istable(buffVal)) then
+						for k2, v2 in pairs(buffVal) do
+							if(isnumber(v2)) then
+								buffTbl[buffType][k2] = v2 * buffMult
+							end
+						end
+					end
+				end
+			end
+
+			client:addBuff(buffTbl)
+		end
+		
+		--timer for buff removal
+		if(timer.Exists("DrugEffect_" ..name.. "_" ..client:EntIndex())) then --refreshes existing buffs if they exist
+			timer.Adjust("DrugEffect_" ..name.. "_" ..client:EntIndex(), durationB, 1, function()
+				buffRemoval(item, client, charID, name)
+			end)
+		else				
+			timer.Create("DrugEffect_" ..name.. "_" ..client:EntIndex(), durationB, 1, function()
+				buffRemoval(item, client, charID, name)
+			end)
 		end
 	end
-	
+
 	local cure = item:getData("cure", item.cure)
 	if(cure) then
 		local buffs = table.Copy(client:getBuffs())
@@ -307,18 +375,18 @@ local function consume(client, item)
 			end
 		end
 	end
-	
+
 	--disease support
 	if(DISEASES) then
 		--gives diseases
 		if(item.disease) then
 			local roll = math.random(1,100)
-			
+
 			if(roll <= (item.disChance or 100)) then
 				client:giveDisease(item.disease)
 			end
 		end
-		
+
 		--cures diseases
 		if(item.cures) then
 			for k, v in pairs(item.cures) do
@@ -328,14 +396,14 @@ local function consume(client, item)
 			end
 		end
 	end
-	
+
 	--hp healing
 	if(item.hp) then
 		local id = "nutHeal_"..FrameTime()
 		local hpTime = item.hpTime or 1
-		
+
 		local healRate = item.hp/hpTime --health per second
-		
+
 		local tickRate = (1/healRate) --how many seconds between heals
 		local ticks = math.Round(hpTime/tickRate) --how many times we heal
 
@@ -347,12 +415,12 @@ local function consume(client, item)
 			--local newHP = math.Clamp(client:Health() + (item.hp/hpTime), 0, client:GetMaxHealth())
 			local newHP = math.Clamp(client:Health() + 1, 0, client:GetMaxHealth())
 			client:SetHealth(newHP) -- actual health
-			
+
 			local combatHP = math.Clamp(client:getHP() + 1, 0, client:getMaxHP())
 			client:setHP(combatHP) -- for combat system
 		end)
 	end
-	
+
 	--mp healing
 	--[[
 	if(item.mp) then
@@ -366,33 +434,33 @@ local function consume(client, item)
 		end)
 	end
 	--]]
-	
+
 	--notifies the player in the top right with a message
 	if(item.notify) then
 		client:notify(item.notify)
 	end
-	
+
 	if(item.extraFunc) then
 		item.extraFunc(item, client)
 	end
-	
+
 	--custom screen effects
 	if(item.effect) then
 		client:nutEffectAdd(item.id, item.effect)
 	end
-	
+
 	--emits sound from player
 	if(item.sound) then
 		client:EmitSound(item.sound, 75, item.soundPitch or 100)
 	end
-	
+
 	--this is garbage and should be redone properly.
 	if(item.soundURL) then 
 		local stupidlua = "sound.PlayURL('" ..item.soundURL.. "', '', function() end)"
-		
+
 		client:SendLua(stupidlua)
 	end
-	
+
 	--reduce quantity by 1
 	local quantity2 = item:getData("quantity2", item.quantity2)
 	quantity2 = quantity2 - 1
@@ -404,20 +472,20 @@ local function consume(client, item)
 		if(item.container) then
 			local position = client:getItemDropPos()
 			local inventory = char:getInv()
-			
+
 			local newCustom = {}
-			
+
 			--whether or not to save the model
 			if(item.containerMdl) then
 				local customData = item:getData("custom", {})				
 				newCustom.model = customData.model
 				newCustom.material = customData.material
 			end
-			
+
 			inventory:addSmart(item.container, 1, position, {custom = newCustom})
 		end
 	end
-	
+
 	return true
 end
 
@@ -676,9 +744,7 @@ function ITEM:getDesc(partial)
 	end
 	
 	if(!partial) then
-		if (self.mustCooked != false) then
-			desc = desc .. "\nThis food must be cooked."
-		end
+		local buffTbl = self:getData("buffTbl", self.buffTbl)
 		
 		if(customData.quality) then
 			desc = desc.. "\nQuality: " ..customData.quality
@@ -706,9 +772,9 @@ function ITEM:getDesc(partial)
 			end
 		end
 		
-		local attribs = self:getData("attrib", self.attrib)
+		local attribs = self:getData("attrib", self.attrib) or (buffTbl and buffTbl.attrib)
 		if(attribs) then
-			desc = desc.. "\n\n<color=50,200,50>Bonuses</color>"
+			desc = desc.. "\n\n<color=50,200,50>Attributes</color>"
 			
 			for buffAttrib, buffValue in pairs(attribs) do
 				if(buffValue != 0) then
@@ -717,17 +783,9 @@ function ITEM:getDesc(partial)
 			end
 		end
 		
-		local buffTbl = self:getData("buffTbl", self.buffTbl)
 		if(buffTbl) then
 			desc = desc.. "\n\n<color=50,200,50>Buffs</color>"
-			
-			local attribs = buffTbl.attrib or {}
-			for buffAttrib, buffValue in pairs(attribs) do
-				if(buffValue != 0) then
-					desc = desc .. "\n " ..((nut.attribs.list[buffAttrib] and nut.attribs.list[buffAttrib].name) or "Unknown Attribute").. ": " ..buffValue
-				end
-			end
-			
+
 			local accuracy = buffTbl.accuracy
 			if(accuracy) then
 				desc = desc .. "\n Accuracy: " ..accuracy
@@ -741,6 +799,11 @@ function ITEM:getDesc(partial)
 			local armor = buffTbl.armor
 			if(armor) then
 				desc = desc .. "\n Armor: " ..armor
+			end
+			
+			local maxHP = buffTbl.maxHP or buffTbl.hpMax
+			if(maxHP) then
+				desc = desc .. "\n Max Health: " ..maxHP
 			end
 			
 			local res = buffTbl.res
