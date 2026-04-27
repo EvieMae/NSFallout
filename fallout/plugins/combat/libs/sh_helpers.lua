@@ -419,7 +419,7 @@ PLUGIN.helperFuncs["getAccuracy"] = function(self, weapon)
 
 		local per = char:getAttrib("per", 0)
 		accuracy = accuracy + (per * 2.0)
-		
+
 		accuracy = accuracy + self:getBuffAttribute("accuracy")
 
 		local accuracyMult = self:getBuffAttributeMult("accuracyMult")

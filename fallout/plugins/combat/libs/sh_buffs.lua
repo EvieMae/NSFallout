@@ -96,13 +96,14 @@ end
 
 --removes a buff from a player
 function playerMeta:removeBuff(buff, id)
+	if(!buff and !id) then return end
+	
 	local buffs = self:getBuffs()
 	
 	local char = self:getChar()
 	char.buffs = buffs
 	
 	local buff = buff or buffs[id or buff.uid] or {}
-	
 	if(buff.attrib) then
 		for k, v in pairs(buff.attrib) do
 			char:removeBoost(buff.name or buff.uid, k)
@@ -111,7 +112,6 @@ function playerMeta:removeBuff(buff, id)
 	
 	-- if this buff is from food, clear stomach when it ends
 	local stomachTbl = char:getVar("stomach", {})
-	
 	if(stomachTbl[id or buff.uid]) then
 		stomachTbl[id or buff.uid] = nil
 	end

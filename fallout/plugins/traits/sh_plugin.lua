@@ -104,15 +104,38 @@ if (SERVER) then
 		end
     end
 	
+	--called when a trait is added to a player
+    function PLUGIN:onTraitAdded(client, char, trait)
+		local traitData = TRAITS.traits[trait]
+		if(traitData and traitData.onLoaded) then
+			traitData.onLoaded(client)
+		end
+		
+		if(traitData and traitData.onAdded) then
+			traitData.onAdded(client)
+		end
+    end
+	
+	--called when a trait is removed from a player
+    function PLUGIN:onTraitRemoved(client, char, trait)
+		local traitData = TRAITS.traits[trait]
+		if(traitData and traitData.onRemoved) then
+			traitData.onRemoved(client)
+		end
+    end
+	
 	--gives a specific trait to someone
 	function playerMeta:giveTrait(trait, char)
 		local char = char or self:getChar()
 		if(!char) then return end
+		if(!trait) then return end
 		
 		local traitData = char:getData("traits", {})
 		traitData[trait] = 1 --sets the actual trait to being enabled.
 		
 		char:setData("traits", traitData, false, player.GetAll())
+		
+		hook.Run("onTraitAdded", self, char, trait)
 		
 		return true
 	end	
@@ -121,11 +144,14 @@ if (SERVER) then
 	function playerMeta:removeTrait(trait)
 		local char = self:getChar()
 		if(!char) then return end
+		if(!trait) then return end
 	
 		local traitData = char:getData("traits", {})
 		traitData[trait] = nil --sets the actual trait to nothing.
 		
 		char:setData("traits", traitData, false, player.GetAll())
+
+		hook.Run("onTraitRemoved", self, char, trait)
 
 		return true
 	end
@@ -150,7 +176,7 @@ function playerMeta:getTraitsData()
 	
 	for k, v in pairs(playerTraits) do
 		local trait = TRAITS.traits[k]
-	
+
 		if(trait) then
 			traitData[#traitData+1] = trait
 		end

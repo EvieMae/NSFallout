@@ -171,6 +171,7 @@ function PLUGIN:ChooseAttack(entity, target, delay)
 				--weapon = weapon,
 				action = action,
 				actionTbl = actionTbl,
+			}
 		
 			entity:Attack(target, actionTbl)
 			PLUGIN:attackStart(entity, data)

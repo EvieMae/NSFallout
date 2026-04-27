@@ -820,7 +820,8 @@ function ENT:Attack(target, action)
 	local GunEffects = self:getNetVar("GunEffects", self.GunEffects)
 	
 	--prevents gun effects for actions that deal no damage
-	if(action and !(action.dmg or action.weaponMult)) then
+	if(action and !table.IsEmpty(action) and !(action.dmg or action.weaponMult)) then	
+		print("Gun effects false")
 		GunEffects = false
 	end
 	

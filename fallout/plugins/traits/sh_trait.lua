@@ -405,6 +405,9 @@ TRAIT.onLoaded = function(client)
 	
 	client:addBuff(buff)
 end
+TRAIT.onRemoved = function(client)
+	client:removeBuff(nil, TRAIT.uid)
+end
 TRAITS:Register(TRAIT)
 //
 local TRAIT = {}
@@ -490,6 +493,9 @@ TRAIT.onLoaded = function(client)
 	
 	client:addBuff(buff)
 end
+TRAIT.onRemoved = function(client)
+	client:removeBuff(nil, TRAIT.uid)
+end
 TRAITS:Register(TRAIT)
 //
 local TRAIT = {}
@@ -512,6 +518,9 @@ TRAIT.onLoaded = function(client)
 	}
 	
 	client:addBuff(buff)
+end
+TRAIT.onRemoved = function(client)
+	client:removeBuff(nil, TRAIT.uid)
 end
 TRAITS:Register(TRAIT)
 //
@@ -539,5 +548,99 @@ TRAIT.onLoaded = function(client)
 	
 	client:addBuff(buff)
 end
+TRAIT.onRemoved = function(client)
+	client:removeBuff(nil, TRAIT.uid)
+end
 TRAITS:Register(TRAIT)
 //
+
+--traits for having low stats in specific attributes
+local TRAIT = {}
+TRAIT.uid = "str_1" 
+TRAIT.name = "Thin Arms"
+TRAIT.desc = "You are weak, and wimpy."
+TRAIT.category = "Perks (Attributes)"
+TRAIT.hidden = true
+--TRAIT.icon = "fonvui/hud/icons/perks/Toughness.png"
+TRAITS:Register(TRAIT)
+//
+local TRAIT = {}
+TRAIT.uid = "per_1" 
+TRAIT.name = "Nearsighted"
+TRAIT.desc = "You couldn't hit the broad side of a blurry barn. -20 accuracy."
+TRAIT.category = "Perks (Attributes)"
+TRAIT.hidden = true
+--TRAIT.icon = "fonvui/hud/icons/perks/Toughness.png"
+TRAIT.onLoaded = function(client)
+	local buff = {
+		uid = TRAIT.uid,
+		name = TRAIT.name,
+
+		accuracy = -20,
+		
+		hidden = true
+	}
+	
+	client:addBuff(buff)
+end
+TRAIT.onRemoved = function(client)
+	client:removeBuff(nil, TRAIT.uid)
+end
+TRAITS:Register(TRAIT)
+//
+local TRAIT = {}
+TRAIT.uid = "end_1" 
+TRAIT.name = "Frail Body"
+TRAIT.desc = "You are fragile and easily breakable. Lose -25 max HP."
+TRAIT.category = "Perks (Attributes)"
+TRAIT.hidden = true
+--TRAIT.icon = "fonvui/hud/icons/perks/Toughness.png"
+TRAIT.onLoaded = function(client)
+	local buff = {
+		uid = TRAIT.uid,
+		name = TRAIT.name,
+
+		maxHP = -25,
+		
+		hidden = true
+	}
+	
+	client:addBuff(buff)
+end
+TRAITS:Register(TRAIT)
+//
+local TRAIT = {}
+TRAIT.uid = "cha_1" 
+TRAIT.name = "Socially Inept"
+TRAIT.desc = "You couldn't talk your way out of an open field."
+TRAIT.category = "Perks (Attributes)"
+TRAIT.hidden = true
+--TRAIT.icon = "fonvui/hud/icons/perks/Toughness.png"
+TRAITS:Register(TRAIT)
+//
+local TRAIT = {}
+TRAIT.uid = "int_1" 
+TRAIT.name = "Village Idiot"
+TRAIT.desc = "u don realy tink gud"
+TRAIT.category = "Perks (Attributes)"
+TRAIT.hidden = true
+--TRAIT.icon = "fonvui/hud/icons/perks/Toughness.png"
+TRAITS:Register(TRAIT)
+//
+local TRAIT = {}
+TRAIT.uid = "agi_1" 
+TRAIT.name = "Lethargic"
+TRAIT.desc = "Calling you a slow poke is an insult to slow pokes."
+TRAIT.category = "Perks (Attributes)"
+TRAIT.hidden = true
+--TRAIT.icon = "fonvui/hud/icons/perks/Toughness.png"
+TRAITS:Register(TRAIT)
+//
+local TRAIT = {}
+TRAIT.uid = "luck_1" 
+TRAIT.name = "Unlucky"
+TRAIT.desc = "Things just never go well for you, do they?"
+TRAIT.category = "Perks (Attributes)"
+TRAIT.hidden = true
+--TRAIT.icon = "fonvui/hud/icons/perks/Toughness.png"
+TRAITS:Register(TRAIT)
